@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OnlineShop.UI</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OnlineShop.UI.styles.css" asp-append-version="true" />
+
+	<!--<link href="~/lib/bulma/css/bulma.css" rel="stylesheet" />-->
+	<link href="~/lib/bulma/css/versions/bulma-no-dark-mode.css" rel="stylesheet" />
+
+</head>
+<body>
+    <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Index">Admin</a>
+    
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - OnlineShop.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

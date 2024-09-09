@@ -1,0 +1,17 @@
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\bin\Debug\net8.0\OnlineShop.Database.deps.json
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\bin\Debug\net8.0\OnlineShop.Database.runtimeconfig.json
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\bin\Debug\net8.0\OnlineShop.Database.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\bin\Debug\net8.0\OnlineShop.Database.pdb
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\bin\Debug\net8.0\OnlineShop.Domain.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\bin\Debug\net8.0\OnlineShop.Domain.pdb
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.csproj.AssemblyReference.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.GeneratedMSBuildEditorConfig.editorconfig
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.AssemblyInfoInputs.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.AssemblyInfo.cs
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.csproj.CoreCompileInputs.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.csproj.CopyComplete
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\refint\OnlineShop.Database.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.pdb
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.genruntimeconfig.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\ref\OnlineShop.Database.dll

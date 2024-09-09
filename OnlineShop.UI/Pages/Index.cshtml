@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <form method="post">
+        <label>Name</label>
+        <input asp-for="Product.Name"/>
+        <label>Value</label>
+        <input asp-for="Product.Value"/>
+        <input type="submit" value="Save product"/>
+    </form>
+</div>
+
+<div>
+    @{
+        foreach(var product in Model.Products)
+        {
+            <p>
+                @product.Name - @product.Value
+            </p>
+        }
+    }
+</div>

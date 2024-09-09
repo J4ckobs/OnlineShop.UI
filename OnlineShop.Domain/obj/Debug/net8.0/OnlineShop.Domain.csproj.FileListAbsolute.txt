@@ -1,0 +1,11 @@
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\bin\Debug\net8.0\OnlineShop.Domain.deps.json
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\bin\Debug\net8.0\OnlineShop.Domain.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\bin\Debug\net8.0\OnlineShop.Domain.pdb
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\OnlineShop.Domain.GeneratedMSBuildEditorConfig.editorconfig
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\OnlineShop.Domain.AssemblyInfoInputs.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\OnlineShop.Domain.AssemblyInfo.cs
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\OnlineShop.Domain.csproj.CoreCompileInputs.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\OnlineShop.Domain.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\refint\OnlineShop.Domain.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\OnlineShop.Domain.pdb
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\net8.0\ref\OnlineShop.Domain.dll
