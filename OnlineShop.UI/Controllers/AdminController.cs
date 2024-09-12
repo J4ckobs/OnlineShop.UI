@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Application.ProductsAdmin;
+using OnlineShop.Application.StockAdmin;
 using OnlineShop.Database;
 using System.Linq.Expressions;
+using System;
+using System.Diagnostics;
+using System.Text.Json;
 
 namespace OnlineShop.UI.Controllers
 {
@@ -13,8 +17,9 @@ namespace OnlineShop.UI.Controllers
         {
             _context = ctx;
         }
-
-        [HttpGet("products")] 
+        
+        //Products
+        [HttpGet("products")]
         public IActionResult GetProducts() => Ok(new GetProducts(_context).Do());
 
         [HttpGet("products/{id}")]
@@ -28,5 +33,18 @@ namespace OnlineShop.UI.Controllers
 
         [HttpPut("products")]
         public async Task<IActionResult> UpdateProduct([FromBody] UpdateProduct.Request request) => Ok(await new UpdateProduct(_context).Do(request));
-    }
+
+        //Stock
+        [HttpGet("stocks")]
+        public IActionResult GetStock() => Ok(new GetStock(_context).Do());
+
+        [HttpPost("stocks")]
+        public async Task<IActionResult> CreateStock([FromBody] CreateStock.Request request) => Ok(await new CreateStock(_context).Do(request));
+
+	    [HttpDelete("stocks/{id}")]
+		public async Task<IActionResult> DeleteStock(int id) => Ok(await new DeleteStock(_context).Do(id));
+
+		[HttpPut("stocks")]
+		public async Task<IActionResult> UpdateStock([FromBody] UpdateStock.Request request) => Ok(await new UpdateStock(_context).Do(request));
+	}
 }

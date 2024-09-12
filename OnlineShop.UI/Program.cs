@@ -1,6 +1,7 @@
 using OnlineShop.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Net.Http.Headers;
 
 namespace OnlineShop.UI
 {
@@ -31,12 +32,24 @@ namespace OnlineShop.UI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+
 			
 
 			app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
-            app.UseRouting();
+			app.UseDeveloperExceptionPage();
+
+            // Prevent browser from using potentionaly outdated files stored in cache
+			app.UseStaticFiles(new StaticFileOptions
+			{
+				OnPrepareResponse = ctx =>
+				{
+					ctx.Context.Response.Headers[HeaderNames.CacheControl] = "no-cache, no-store, must-revalidate";
+				}
+			});
+
+			app.UseRouting();
 
             app.UseAuthorization();
 
