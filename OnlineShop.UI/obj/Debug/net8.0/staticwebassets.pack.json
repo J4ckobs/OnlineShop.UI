@@ -13,12 +13,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\main.js",
-      "PackagePath": "staticwebassets\\js\\admin\\main.js"
+      "Id": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\products.js",
+      "PackagePath": "staticwebassets\\js\\admin\\products.js"
     },
     {
-      "Id": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\product-component.js",
-      "PackagePath": "staticwebassets\\js\\admin\\product-component.js"
+      "Id": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\stock.js",
+      "PackagePath": "staticwebassets\\js\\admin\\stock.js"
     },
     {
       "Id": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\site.js",

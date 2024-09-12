@@ -14,7 +14,7 @@ namespace OnlineShop.UI.Pages
         }
 
         [BindProperty] //Znacznik g³ównego modelu
-        public CreateProduct.Request Product { get; set; }
+        public CreateProduct.Request Product { get; set; } = new CreateProduct.Request();
 
         public IEnumerable<GetProducts.ProductViewModel> Products { get; set; }
 

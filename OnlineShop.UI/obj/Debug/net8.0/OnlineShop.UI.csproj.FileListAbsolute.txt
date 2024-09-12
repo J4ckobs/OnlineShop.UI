@@ -6,6 +6,7 @@ L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\OnlineShop.UI.MvcApplicationPartsAssemblyInfo.cache
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\OnlineShop.UI.RazorAssemblyInfo.cache
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\OnlineShop.UI.RazorAssemblyInfo.cs
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\OnlineShop.UI.sourcelink.json
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\appsettings.Development.json
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\appsettings.json
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\OnlineShop.UI.staticwebassets.runtime.json
@@ -138,6 +139,7 @@ L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.OnlineShop.UI.props
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.OnlineShop.UI.props
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\staticwebassets.pack.json
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\scopedcss\Pages\Admin\_AdminLayout.cshtml.rz.scp.css
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\scopedcss\bundle\OnlineShop.UI.styles.css
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\obj\Debug\net8.0\scopedcss\projectbundle\OnlineShop.UI.bundle.scp.css

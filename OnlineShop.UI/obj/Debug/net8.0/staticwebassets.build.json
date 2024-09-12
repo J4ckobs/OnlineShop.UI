@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Xohg+p1qxw9TV4ZfWnbao/rqZ3+I8pQTBA+i4NFPeT4=",
+  "Hash": "5DdFumrFtrdo1JLpY3ryBD+I+toMgcgTuxXzfmyZ9iA=",
   "Source": "OnlineShop.UI",
   "BasePath": "_content/OnlineShop.UI",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\main.js",
+      "Identity": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\products.js",
       "SourceId": "OnlineShop.UI",
       "SourceType": "Discovered",
       "ContentRoot": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\",
       "BasePath": "_content/OnlineShop.UI",
-      "RelativePath": "js/admin/main.js",
+      "RelativePath": "js/admin/products.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,15 +109,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\admin\\main.js"
+      "OriginalItemSpec": "wwwroot\\js\\admin\\products.js"
     },
     {
-      "Identity": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\product-component.js",
+      "Identity": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\stock.js",
       "SourceId": "OnlineShop.UI",
       "SourceType": "Discovered",
       "ContentRoot": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\",
       "BasePath": "_content/OnlineShop.UI",
-      "RelativePath": "js/admin/product-component.js",
+      "RelativePath": "js/admin/stock.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,7 +128,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\admin\\product-component.js"
+      "OriginalItemSpec": "wwwroot\\js\\admin\\stock.js"
     },
     {
       "Identity": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\site.js",

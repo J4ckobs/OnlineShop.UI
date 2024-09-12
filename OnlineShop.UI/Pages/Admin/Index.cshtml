@@ -4,32 +4,53 @@
 }
 
 <div id="app" class="container">
-	<div class="columns">
-		<div class="column is-3">
-			<div class="menu">
-				<p class="menu-label">Admin Menu</p>
-				<ul class="menu-list">
-					<li v-on:click="menu = 0"><a>Products</a></li>
-					<li v-on:click="menu = 1"><a>Orders</a></li>
-					<li v-on:click="menu = 2"><a>Stock</a></li>
-				</ul>
-			</div>
+	<div>
+		<div v-if="!editing">
+			<button class="button" v-on:click="newProduct">Add New Product</button>
+			<table class="table">
+				<tr>
+					<td>Id</td>
+					<td>Product</td>
+					<td>Value</td>
+				</tr>
+				<tr v-for="(product, index) in products">
+					<td>{{product.id}}</td>
+					<td>{{product.name}}</td>
+					<td>{{product.value}}</td>
+					<td><a style="color: darkblue; text-decoration:underline;" v-on:click="editProduct(product.id, index)">Edit</a></td>
+					<td><a style="color: darkblue; text-decoration:underline;" v-on:click="deleteProduct(product.id, index)">Remove</a></td>
+				</tr>
+			</table>
 		</div>
-		<div class="column is-9">
-			<product-manager v-if="menu === 0"></product-manager>
-			<p v-else="menu === 1">Orders</p>
-			<p v-else="menu === 2">Stock</p>
+
+		<div v-else>
+			<div class="field">
+				<label class="label">Name</label>
+				<div class="control">
+					<input class="input" v-model="productModel.name" />
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Description</label>
+				<div class="control">
+					<input class="input" v-model="productModel.description" />
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Value</label>
+				<div class="control">
+					<input class="input" v-model="productModel.value" />
+				</div>
+			</div>
+
+			<button class="button is-success" v-on:click="createProduct" v-if="!productModel.id">Create Product</button>
+			<button class="button is-warning" v-on:click="updateProduct" v-else="">Update Product</button>
+			<button class="button" v-on:click="cancelUpdateProduct">Cancel</button>
 		</div>
 	</div>
-
-	
 </div>
 
 
 @section scripts {
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.js"></script>
-	<script src="~/js/admin/product-component.js"></script>
-	<script src="~/js/admin/main.js"></script>
-
+	<script src="~/js/admin/products.js"></script>
 }

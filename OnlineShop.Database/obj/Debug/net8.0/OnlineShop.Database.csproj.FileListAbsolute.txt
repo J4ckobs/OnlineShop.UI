@@ -9,6 +9,7 @@ L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.AssemblyInfoInputs.cache
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.AssemblyInfo.cs
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.csproj.CoreCompileInputs.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.sourcelink.json
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.csproj.CopyComplete
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\OnlineShop.Database.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Database\obj\Debug\net8.0\refint\OnlineShop.Database.dll
