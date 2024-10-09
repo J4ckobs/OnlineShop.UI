@@ -34,6 +34,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Checkout/CustomerInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRcQ3VzdG9tZXJJbmZvcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Checkout/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRcUGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Checkout/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRcU3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Components/Cart/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xDYXJ0XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Components/Cart/Small.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xDYXJ0XFNtYWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,8 +66,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Order.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Shared/_ValidationScriptsPartial.cshtml]

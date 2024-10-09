@@ -1,0 +1,14 @@
+﻿@page
+@model SuccessModel
+@{
+}
+
+<h2 class="title">Payment successful.</h2>
+
+@section scripts {
+	<script>
+		window.setTimeout(function () {
+			window.location.href = '/';
+		}, 5000);
+	</script>
+}

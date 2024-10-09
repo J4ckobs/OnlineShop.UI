@@ -4,21 +4,18 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="mid">
-	<table class="table">
-		<tr>
-			<td>Id</td>
-			<td>Product</td>
-		</tr>
-		@{
-			foreach (var product in Model.Products)
-			{
-				<tr>
-					<td>@product.Name</td>
-					<td>@product.Value</td>
-				</tr>
-			}
+<div>
+	@{
+		foreach (var product in Model.Products)
+		{
+			<a asp-page="Product" asp-route-name="@product.Name.Replace(" ","-")">
+			@product.Name - @product.Description - @product.Value;
+			</a>
+			<br />
 		}
-	</table>
-    
+
+	}
+
 </div>
+
+@await Component.InvokeAsync("Cart")

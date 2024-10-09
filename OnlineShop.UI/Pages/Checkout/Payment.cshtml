@@ -1,0 +1,50 @@
+﻿@page
+@model OnlineShop.UI.Pages.Checkout.PaymentModel
+@{
+}
+
+<div class="title">Payment</div>
+
+<div class="subtitle">Summary of transaction</div>
+<hr />
+<div>
+	<div>
+		<span> First Name</span> <br />
+		<span>@Model.customerInformation.FirstName</span>
+	</div>
+	<br />
+	<div>
+		<span>Last Name</span> <br />
+		<span>@Model.customerInformation.LastName</span>
+	</div>
+	<br />
+	<div>
+		<span>E-mail</span> <br />
+		<span>@Model.customerInformation.Email</span>
+	</div>
+	<br />
+	<div>
+		<span>Phone Number</span> <br />
+		<span>@Model.customerInformation.PhoneNumber</span>
+	</div>
+	<br />
+	<div>
+		<span>Address</span> <br />
+		<span>@Model.customerInformation.Address1</span> <br />
+		<span>@Model.customerInformation.Address2</span>
+	</div>
+	<br />
+	<div>
+		<span>City</span> <br />
+		<span>@Model.customerInformation.City</span>
+	</div>
+	<br />
+	<div>
+		<span>Post Code</span> <br />
+		<span>@Model.customerInformation.PostCode</span>
+	</div>
+	<hr />
+	<form action="" method="post">
+		<button class="button" type="submit" >Checkout</button>
+	</form>
+</div>
