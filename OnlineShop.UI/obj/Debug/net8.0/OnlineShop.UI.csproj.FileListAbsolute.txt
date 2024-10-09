@@ -47,6 +47,8 @@ L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\Mono.TextTemplating.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\Newtonsoft.Json.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\Stripe.net.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\System.CodeDom.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI\bin\Debug\net8.0\System.Composition.Convention.dll

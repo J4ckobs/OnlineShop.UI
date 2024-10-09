@@ -240,11 +240,31 @@ namespace OnlineShop.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("OrderRef")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PostCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StripeReference")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -253,19 +273,22 @@ namespace OnlineShop.Database.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("OnlineShop.Domain.Models.OrderProduct", b =>
+            modelBuilder.Entity("OnlineShop.Domain.Models.OrderStock", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("StockId")
                         .HasColumnType("int");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductId", "OrderId");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("StockId", "OrderId");
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderProducts");
+                    b.ToTable("OrderStocks");
                 });
 
             modelBuilder.Entity("OnlineShop.Domain.Models.Product", b =>
@@ -307,9 +330,8 @@ namespace OnlineShop.Database.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Quantity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -369,23 +391,23 @@ namespace OnlineShop.Database.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("OnlineShop.Domain.Models.OrderProduct", b =>
+            modelBuilder.Entity("OnlineShop.Domain.Models.OrderStock", b =>
                 {
                     b.HasOne("OnlineShop.Domain.Models.Order", "Order")
-                        .WithMany("OrderProduct")
+                        .WithMany("OrderStocks")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("OnlineShop.Domain.Models.Product", "Product")
-                        .WithMany("OrderProduct")
-                        .HasForeignKey("ProductId")
+                    b.HasOne("OnlineShop.Domain.Models.Stock", "Stock")
+                        .WithMany("OrderStocks")
+                        .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Order");
 
-                    b.Navigation("Product");
+                    b.Navigation("Stock");
                 });
 
             modelBuilder.Entity("OnlineShop.Domain.Models.Stock", b =>
@@ -401,14 +423,17 @@ namespace OnlineShop.Database.Migrations
 
             modelBuilder.Entity("OnlineShop.Domain.Models.Order", b =>
                 {
-                    b.Navigation("OrderProduct");
+                    b.Navigation("OrderStocks");
                 });
 
             modelBuilder.Entity("OnlineShop.Domain.Models.Product", b =>
                 {
-                    b.Navigation("OrderProduct");
-
                     b.Navigation("Stock");
+                });
+
+            modelBuilder.Entity("OnlineShop.Domain.Models.Stock", b =>
+                {
+                    b.Navigation("OrderStocks");
                 });
 #pragma warning restore 612, 618
         }

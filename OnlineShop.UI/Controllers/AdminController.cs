@@ -2,10 +2,6 @@
 using OnlineShop.Application.ProductsAdmin;
 using OnlineShop.Application.StockAdmin;
 using OnlineShop.Database;
-using System.Linq.Expressions;
-using System;
-using System.Diagnostics;
-using System.Text.Json;
 
 namespace OnlineShop.UI.Controllers
 {
@@ -13,9 +9,9 @@ namespace OnlineShop.UI.Controllers
     public class AdminController : Controller
     {
         private ApplicationDbContext _context;
-        public AdminController(ApplicationDbContext ctx)
+        public AdminController(ApplicationDbContext context)
         {
-            _context = ctx;
+            _context = context;
         }
         
         //Products
