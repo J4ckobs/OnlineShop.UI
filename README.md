@@ -9,7 +9,7 @@ OnlineShop to aplikacja webowa stworzona w technologii MVC, umożliwiająca uży
 - **Zarządzanie stroną (dla administratora)**: Administrator może zarządzać produktami (nazwy, ceny, warianty, opisy, ilości) oraz zamówieniami klientów.
 
 ## Technologie
-- **.NET 8.0**
+- **.NET 8.0+**
 - **C# ASP.NET MVC**
 - **LINQ**
 - **Stripe** (integracja z płatnościami)
