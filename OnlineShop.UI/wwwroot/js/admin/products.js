@@ -70,6 +70,8 @@
                 })
                 .then(() => {
                     this.loading = false;
+                    this.editing = false;
+                    this.setDefaultValues();
                 })
         },
 
@@ -86,6 +88,7 @@
                 .then(() => {
                     this.loading = false;
                     this.editing = false;
+                    this.setDefaultValues();
                 })
         },
 
@@ -118,6 +121,16 @@
 
         cancelUpdateProduct() {
             this.editing = false;
+            this.setDefaultValues();
+        },
+
+        setDefaultValues() {
+            this.productModel = {
+                id: 0,
+                name: 'Product Name',
+                description: "Product desc",
+                value: 1.99
+            };
         }
     }
 });

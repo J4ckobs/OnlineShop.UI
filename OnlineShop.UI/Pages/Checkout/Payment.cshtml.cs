@@ -93,9 +93,12 @@ namespace OnlineShop.UI.Pages.Checkout
 			var session = service.Create(stripePaymentOptions);
 			SessionId = session.Id;
 
+			var sessionId = HttpContext.Session.Id;
+
 			await new CreateOrder(_context).Do(new CreateOrder.Request
 			{
 				StripeReference = customer.Id,
+				SessionId = sessionId,
 
 				FirstName = CartOrder.CustomerInformation.FirstName,
 				LastName = CartOrder.CustomerInformation.LastName,

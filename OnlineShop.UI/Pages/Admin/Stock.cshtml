@@ -1,5 +1,5 @@
 ﻿@page
-@model OnlineShop.UI.Pages.Admin.StockModel
+@model StockModel
 @{
 }
 
@@ -8,7 +8,8 @@
 		<div class=" column is-3">
 			<table class="table">
 				<tr v-for ="product in products" @@click="selectProduct(product)">
-					<td>{{product.description}}</td>
+					<td>{{product.name}}</td>
+
 				</tr>
 			</table>
 		</div>
