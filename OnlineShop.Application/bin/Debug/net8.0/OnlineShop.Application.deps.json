@@ -705,12 +705,18 @@
           "OnlineShop.Domain": "1.0.0"
         },
         "runtime": {
-          "OnlineShop.Database.dll": {}
+          "OnlineShop.Database.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "OnlineShop.Domain/1.0.0": {
         "runtime": {
-          "OnlineShop.Domain.dll": {}
+          "OnlineShop.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

@@ -16,25 +16,46 @@ namespace OnlineShop.Application.Products
 			_context = ctx;
 		}
 
-		public ProductViewModel Do(string name) =>
-			_context.Products
-			.Include(x=> x.Stock)
-			.Where(x=> x.Name == name)
-			.Select(x => new ProductViewModel
-			{
-				Name = x.Name,
-				Description = x.Description,
-				Value = $"{x.Value.ToString("N2")} $", // 1100.50 -> 1,100.50 -> 1,100.50 $
+		public async Task<ProductViewModel> Do(string name)
+		{
+			var stocksOnHold = _context.StockOnHold.Where(x => x.ExpiryDate < DateTime.Now).ToList();
 
-				Stock = x.Stock
-						 .Select(y=> new StockViewModel
-						 {
-							 Id = y.Id,
-							 Description = y.Description,
-							 InStock = y.Quantity >  0
-						 })
-			})
-			.FirstOrDefault();
+			if(stocksOnHold.Count > 0)
+			{
+				//var stockToReturn = _context.Stock.Where(x => stocksOnHold.Any(y => y.StockId == x.Id)).ToList();
+				var stockIds = stocksOnHold.Select(y => y.StockId).ToList();
+				var stockToReturn = _context.Stock.Where(x => stockIds.Contains(x.Id)).ToList();
+
+
+				foreach (var stock in stockToReturn)
+				{
+					stock.Quantity = stock.Quantity + stocksOnHold.FirstOrDefault(x => x.StockId == stock.Id).Quantity;
+				}
+
+				_context.StockOnHold.RemoveRange(stocksOnHold);
+
+				await _context.SaveChangesAsync();
+			}
+
+			return _context.Products
+						.Include(x=> x.Stock)
+						.Where(x=> x.Name == name)
+                        .Select(x => new ProductViewModel
+						{
+							Name = x.Name,
+							Description = x.Description,
+							Value = $"{x.Value.ToString("N2")} $", // 1100.50 -> 1,100.50 -> 1,100.50 $
+
+							Stock = x.Stock
+										.Select(y=> new StockViewModel
+										{
+											Id = y.Id,
+											Description = y.Description,
+											InStock = y.Quantity > 0
+										})
+						})
+						.FirstOrDefault();
+		}
 
 		public class ProductViewModel
 		{
