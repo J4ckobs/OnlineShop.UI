@@ -54,7 +54,8 @@
               "RelativeToolTip": "OnlineShop.UI\\Pages\\Product.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T20:19:35.183Z"
+              "WhenOpened": "2024-11-05T20:19:35.183Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -66,7 +67,8 @@
               "RelativeToolTip": "OnlineShop.UI\\ViewComponents\\CartViewComponent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T17:34:19.945Z"
+              "WhenOpened": "2024-11-03T17:34:19.945Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -78,7 +80,8 @@
               "RelativeToolTip": "OnlineShop.UI\\Pages\\Components\\Cart\\Small.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-03T17:32:21.139Z"
+              "WhenOpened": "2024-11-03T17:32:21.139Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -90,7 +93,8 @@
               "RelativeToolTip": "OnlineShop.UI\\Pages\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABkAAAAAAAAAAAAAACYAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-03T17:30:19.309Z"
+              "WhenOpened": "2024-11-03T17:30:19.309Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -102,7 +106,8 @@
               "RelativeToolTip": "OnlineShop.UI\\Pages\\Cart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-03T17:20:28.408Z"
+              "WhenOpened": "2024-11-03T17:20:28.408Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -112,7 +117,7 @@
               "RelativeDocumentMoniker": "OnlineShop.UI\\Pages\\Product.cshtml",
               "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Product.cshtml",
               "RelativeToolTip": "OnlineShop.UI\\Pages\\Product.cshtml",
-              "ViewState": "AgIAACkAAAAAAAAAAAAowDgAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAowEoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-03T16:34:41.742Z",
               "EditorCaption": ""
