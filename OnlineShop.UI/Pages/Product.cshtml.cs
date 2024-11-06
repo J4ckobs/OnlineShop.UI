@@ -32,7 +32,11 @@ namespace OnlineShop.UI.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            var stockAdded = await new AddToCart(HttpContext.Session, _context).Do(CartViewModel);
+            Console.WriteLine("###");
+			Console.WriteLine(CartViewModel.Quantity);
+			Console.WriteLine("###");
+
+			var stockAdded = await new AddToCart(HttpContext.Session, _context).DoAsync(CartViewModel);
 
             if(stockAdded)
                 return RedirectToPage("Cart");

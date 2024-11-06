@@ -44,8 +44,6 @@
 			</div>
 
 			<button class="button is-success" v-on:click="createProduct" v-if="!productModel.id">Create Product</button>
-			<!--   TO DO: When 'Create Produc't clicked nothing changes on the screen, and when u click 'Cancel'' and 'Add New Product' 
-				data from previous product stays despite exiting submenu   -->
 			<button class="button is-warning" v-on:click="updateProduct" v-else="">Update Product</button>
 			<button class="button" v-on:click="cancelUpdateProduct">Cancel</button>
 		</div>

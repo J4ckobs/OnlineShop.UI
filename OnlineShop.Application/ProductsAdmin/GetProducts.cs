@@ -10,6 +10,7 @@ namespace OnlineShop.Application.ProductsAdmin
     public class GetProducts
     {
         private ApplicationDbContext _context;
+
         public GetProducts(ApplicationDbContext ctx)
         {
             _context = ctx;

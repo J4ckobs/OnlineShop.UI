@@ -21,7 +21,7 @@ namespace OnlineShop.Application.Cart
             public int Quantity { get; set; }
         }
 
-        public async Task<bool> Do(Request request)
+        public async Task<bool> DoAsync(Request request)
         {
 			var stockOnHold = _context.StockOnHold.Where(x => x.SessionId == _session.Id).ToList();
 			var stockToHold = _context.Stock.Where(x => x.Id == request.StockId).FirstOrDefault();

@@ -18,8 +18,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Accounts/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudHNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Admin/ConfigureUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29uZmlndXJlVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Admin/OrderManagment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJNYW5hZ21lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Admin/Orders.cshtml]

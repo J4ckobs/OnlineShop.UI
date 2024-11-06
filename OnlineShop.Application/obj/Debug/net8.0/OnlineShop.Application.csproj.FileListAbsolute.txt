@@ -11,8 +11,8 @@ L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineShop.Application.AssemblyInfo.cs
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineShop.Application.csproj.CoreCompileInputs.cache
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineShop.Application.sourcelink.json
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineSh.74C1F928.Up2Date
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineShop.Application.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\refint\OnlineShop.Application.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineShop.Application.pdb
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\ref\OnlineShop.Application.dll
-L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineSh.74C1F928.Up2Date

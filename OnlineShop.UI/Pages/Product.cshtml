@@ -1,32 +1,99 @@
 ﻿@page "{name}"
 @model OnlineShop.UI.Pages.ProductModel
-@{}
+@{
+}
 
-<div>
-	<p>@Model.Product.Name</p> <br />
-	<p>@Model.Product.Description</p> <br />
-	<p>@Model.Product.Value</p> <br />
+<div class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-6">
+					<figure class="image is-1by1"> 
+						<img src="~/images/item.jpg" />
+					</figure>
+				</div>
+				<div class="column is-6">
+					<section class="content">
+						<p class="title">@Model.Product.Name</p>
+						<p class="subtitle">@Model.Product.Description</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla diam lorem, at accumsan sapien gravida venenatis. Morbi maximus fermentum ligula, in mattis lectus pulvinar at. Vivamus eu egestas ipsum. Phasellus dignissim nunc justo, nec molestie leo hendrerit id. Aliquam vehicula risus sed fringilla placerat. Sed sed vestibulum libero, vel vulputate magna. Fusce ex sapien, blandit at enim in, vulputate viverra mi. Sed porta rhoncus elit eu efficitur. Duis lectus sem, tincidunt vitae augue at, blandit molestie diam.
+						</p>
+						<footer>
+							<form method="post">
 
-	<div>
-		<form method="post">
-		<label>Stock</label>
-		<select asp-for="CartViewModel.StockId">
-			@foreach (var stock in Model.Product.Stock)
-			{
-				<option value="@stock.Id"> @stock.Description</option>
-			}
-		</select>
-		<label>Quantity</label>
-		<input asp-for="CartViewModel.Quantity" />
-		<button type="submit">Submit</button>
-		</form>
+								<div class="field is-horizontal">
+									<div class="field-label is-normal">
+										<label class="label">Size</label>
+									</div>
+									<div class="field-body">
+										<div class="field is-narrow">
+											<div class="control">
+												<div class="select is-fullwidth">
+													<select asp-for="CartViewModel.StockId">
+														@foreach (var stock in Model.Product.Stock)
+														{
+															<option value="@stock.Id"> @stock.Description</option>
+														}
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="field is-horizontal">
+									<div class="field-label is-normal">
+										<label class="label">Quantity</label>
+									</div>
+
+									<div class="field-body">
+										<div class="field has-addons is-narrow">
+											<p class="control">
+												<button type="button" class="button"
+														onclick="numberInput.stepDown()"
+														title="Decrease value"
+														aria-label="Decrease value">
+													-
+												</button>
+												</p>
+											<p class="control">
+												<input class="input has-text-centered"
+													   type="number"
+													   value="1"
+													   min="1"
+													   max="99"
+													   id = "numberInput"
+													   asp-for="CartViewModel.Quantity">
+											</p>
+											<p class="control">
+												<button type="button" class="button"
+														onclick="numberInput.stepUp()"
+														title="Increase value"
+														aria-label="Increase value">
+													+
+												</button>
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="field is-horizontal">
+									<div class="field-label is-normal">
+									</div>
+									<div class="field-body">
+										<div class="field is-narrow">
+											<div class="control">
+												<button class="button is-success" type="submit">Submit</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</footer>
+					</section>
+				</div>
+			</div>
+		</div>
 	</div>
-	<br />
-	<a asp-page="/Index">
-		<div class="button">Back to Main</div>
-	</a>
-
 </div>
-<br />
-
-@await Component.InvokeAsync("Cart")

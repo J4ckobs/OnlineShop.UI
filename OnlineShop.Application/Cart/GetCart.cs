@@ -32,20 +32,6 @@ namespace OnlineShop.Application.Cart
 
 			var cartList = JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
 
-			//Wrong SQL Translation
-			/*
-			var response = _context.Stock
-				.Include(x => x.Product)
-				.Where(x => cartList.Any(y => y.StockId == x.Id))
-				.Select(x => new Response
-				{
-					Name = x.Product.Name,
-					Value = $"{x.Product.Value.ToString("N2")} $",
-					StockId = x.Id,
-					Quantity = cartList.FirstOrDefault(y => y.StockId == x.Id).Quantity
-				})
-				.ToList();*/
-
 			// Better working solution - seperating server side and client side operations
 			// Server Site Request
 			var stockIds = cartList.Select(y => y.StockId).ToList();

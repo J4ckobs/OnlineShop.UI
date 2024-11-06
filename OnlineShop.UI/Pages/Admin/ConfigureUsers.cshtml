@@ -1,0 +1,38 @@
+﻿@page
+@model OnlineShop.UI.Pages.Admin.ConfigureUsersModel
+@{
+}
+
+<div id="app" class="container is-centered">
+	<div class="column">
+		<table class="table">
+			<tr>
+				<td>Username</td>
+				<td>Id</td>
+			</tr>
+			<tr v-for="(user, index) in users">
+				<td>{{user.userName}}</td>
+				<td>{{user.id}}</td>
+				<td><a style="color: darkblue; text-decoration: underline;" @@click="deleteUser(user.id, index)">Remove</a></td>
+			</tr>
+		</table>
+	</div>
+	<br />
+	<table class="column">
+
+		<label>Username</label>
+		<br />
+		<input v-model="username" />
+		<br />
+		<label>Password</label>
+		<br />
+		<input v-model="password" />
+		<br /> <br />
+		<button class="button is-3" @@click="createUser()">Create</button>
+	</table>
+</div>
+
+
+@section scripts {
+	<script src="~/js/admin/users.js"></script>
+}
