@@ -1,9 +1,9 @@
-﻿@model IEnumerable<OnlineShop.Application.Cart.GetCart.Response>
+﻿@model string
 
 @{
 
 }
 
-<a asp-page="/Admin/Cart">
-	Cart @Model.Sum(x =>x.Quantity)
+<a class="navbar-item" asp-page="/Cart">
+	Cart @Model
 </a>

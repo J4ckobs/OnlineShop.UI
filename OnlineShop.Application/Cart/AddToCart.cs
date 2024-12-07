@@ -29,14 +29,23 @@ namespace OnlineShop.Application.Cart
             if(stockToHold.Quantity < request.Quantity)
                 return false;
 
-
-            _context.StockOnHold.Add(new StockOnHold
+            if(stockOnHold.Any(x => x.StockId == request.StockId))
             {
-                StockId = stockToHold.Id,
-                SessionId = _session.Id,
-                Quantity = request.Quantity,
-                ExpiryDate = DateTime.Now.AddMinutes(20)
-            });
+                stockOnHold.Find(x => x.StockId == request.StockId).Quantity += request.Quantity;
+            } 
+            else
+			{
+				_context.StockOnHold.Add(new StockOnHold
+				{
+					StockId = stockToHold.Id,
+					SessionId = _session.Id,
+					Quantity = request.Quantity,
+					ExpiryDate = DateTime.Now.AddMinutes(20)
+				});
+			}
+
+
+            
 
             stockToHold.Quantity = stockToHold.Quantity - request.Quantity;
 

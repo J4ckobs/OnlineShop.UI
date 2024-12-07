@@ -27,9 +27,30 @@
                                 <p class="subtitle">
                                     @product.Description
                                 </p>
-                                <div class="content">
+
+                                    @{
+                                        string cssClass = "";
+                                        string message = "";
+
+                                        if(product.StockCount == 0)
+                                        {
+                                            cssClass = "is-danger";
+                                            message = "Out of Stock";
+                                        }
+                                        else if(product.StockCount <= 10)
+                                        {
+                                            cssClass = "is-warning";
+                                            message = "Low on Stock";
+                                        }
+                                    }
+
+                                    @if (product.StockCount <= 10)
+                                    {
+                                        <div class="notification is-paddingless has-text-centered @cssClass">
+                                        @message
+                                        </div>
+                                    }
                                 </div>
-                            </div>
                         </div>
                     </a>
                 </div>

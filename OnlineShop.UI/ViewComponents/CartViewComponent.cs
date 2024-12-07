@@ -17,7 +17,9 @@ namespace OnlineShop.UI.ViewComponents
         {
             if(view == "Small")
             {
-                //return;
+                var totalValue = new GetCart(HttpContext.Session, _context).Do().Sum(x => x.RealValue * x.Quantity);
+
+				return View(view, $"{totalValue} $");
             }
 
             return View(view, new GetCart(HttpContext.Session, _context).Do());

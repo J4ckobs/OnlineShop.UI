@@ -38,23 +38,23 @@ namespace OnlineShop.Application.Products
 			}
 
 			return _context.Products
-						.Include(x=> x.Stock)
-						.Where(x=> x.Name == name)
-                        .Select(x => new ProductViewModel
-						{
-							Name = x.Name,
-							Description = x.Description,
-							Value = $"{x.Value.ToString("N2")} $", // 1100.50 -> 1,100.50 -> 1,100.50 $
+				.Include(x=> x.Stock)
+				.Where(x=> x.Name == name)
+                .Select(x => new ProductViewModel
+				{
+					Name = x.Name,
+					Description = x.Description,
+					Value = $"{x.Value.ToString("N2")} $", // 1100.50 -> 1,100.50 -> 1,100.50 $
 
-							Stock = x.Stock
-										.Select(y=> new StockViewModel
-										{
-											Id = y.Id,
-											Description = y.Description,
-											InStock = y.Quantity > 0
-										})
-						})
-						.FirstOrDefault();
+					Stock = x.Stock
+						.Select(y=> new StockViewModel
+						{
+							Id = y.Id,
+							Description = y.Description,
+							Quantity = y.Quantity,
+                        })
+				})
+				.FirstOrDefault() ?? new ProductViewModel { };
 		}
 
 		public class ProductViewModel
@@ -70,7 +70,7 @@ namespace OnlineShop.Application.Products
 		{
 			public int Id { get; set; }
 			public string Description { get; set; }
-			public bool InStock { get; set; }
+            public int Quantity { get; set; }
 		}
     }
 }

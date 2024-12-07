@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using OnlineShop.Application.ProductsAdmin;
+using OnlineShop.Application.Products;
 using OnlineShop.Database;
 
 namespace OnlineShop.UI.Pages
@@ -14,7 +14,7 @@ namespace OnlineShop.UI.Pages
         }
 
         [BindProperty] //Znacznik g³ównego modelu
-        public CreateProduct.Request Product { get; set; } = new CreateProduct.Request();
+        public Application.ProductsAdmin.CreateProduct.Request Product { get; set; } = new Application.ProductsAdmin.CreateProduct.Request();
 
         public IEnumerable<GetProducts.ProductViewModel> Products { get; set; }
 

@@ -5,13 +5,26 @@
 }
 
 <div>
-	<h2>Big Cart Component</h2>
+	<p class="title">Cart</p>
 	@foreach (var product in Model)
 	{
-		<p> @product.Name</p>
-		<p> @product.Value</p>
-		<p> @product.Quantity</p>
-		<p> @product.StockId</p>
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                    <img src="~/images/item.jpg" />
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <p class="title"> @product.Name</p>
+					<div class="level">
+                        <div class="level-item">Quantity: @product.Quantity</div>
+                        <div class="level-item">Size: @product.StockId</div>
+                        <div class="level-item">Price: @product.Value</div>
+                    </div>
+                </div>
+            </div>
+        </article>
 		<hr />
 	}
 </div>
