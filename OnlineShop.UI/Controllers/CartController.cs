@@ -42,9 +42,9 @@ namespace OnlineShop.UI.Controllers
 				Quantity = 1
 			};
 
-			var addToCart = new RemoveFromCart(HttpContext.Session, _context);
+			var removeFromCart = new RemoveFromCart(HttpContext.Session, _context);
 
-			var success = await addToCart.DoAsync(request);
+			var success = await removeFromCart.DoAsync(request);
 
 			if (success)
 				return Ok("Item removed from cart");
@@ -61,14 +61,14 @@ namespace OnlineShop.UI.Controllers
 				RemoveAll = true
 			};
 
-			var addToCart = new RemoveFromCart(HttpContext.Session, _context);
+			var removeAllFromCart = new RemoveFromCart(HttpContext.Session, _context);
 
-			var success = await addToCart.DoAsync(request);
+			var success = await removeAllFromCart.DoAsync(request);
 
 			if (success)
-				return Ok("All items removed from cart");
+				return Ok("Cart cleared"); // TO DO: return value decreased by value of removed items when more items in cart
 
-			return BadRequest("Failed to remove all items from cart");
+			return BadRequest("Failed to cleared cart");
 		}
 	}
 }

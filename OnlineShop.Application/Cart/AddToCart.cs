@@ -44,9 +44,6 @@ namespace OnlineShop.Application.Cart
 				});
 			}
 
-
-            
-
             stockToHold.Quantity = stockToHold.Quantity - request.Quantity;
 
             foreach (var stock in stockOnHold)

@@ -8,6 +8,7 @@ namespace OnlineShop.UI.Pages
     public class CartModel : PageModel
     {
         private ApplicationDbContext _context;
+
         public CartModel(ApplicationDbContext context)
         {
             _context = context;

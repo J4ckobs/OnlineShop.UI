@@ -7,12 +7,6 @@
       "RelativeMoniker": "D:0:0:{641812A8-6FC0-4323-A037-257FDBAEB2D2}|OnlineShop.Application\\OnlineShop.Application.csproj|solutionrelative:onlineshop.application\\cart\\removefromcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MyShop/True/SqlTable/dbo.Stock.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MyShop/True/SqlTable/dbo.StockOnHold.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\pages\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\pages\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -32,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 461,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -48,33 +42,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "dbo.Stock [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MyShop/True/SqlTable/dbo.Stock.sql",
-              "ToolTip": "dbo.Stock [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-06T18:07:22.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.StockOnHold [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MyShop/True/SqlTable/dbo.StockOnHold.sql",
-              "ToolTip": "dbo.StockOnHold [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-06T18:05:02.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "AddToCart.cs",
               "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.Application\\Cart\\AddToCart.cs",
               "RelativeDocumentMoniker": "OnlineShop.Application\\Cart\\AddToCart.cs",
               "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.Application\\Cart\\AddToCart.cs",
               "RelativeToolTip": "OnlineShop.Application\\Cart\\AddToCart.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAswCMAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAswC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-06T10:28:42.606Z",
               "EditorCaption": ""
@@ -87,33 +61,33 @@
               "RelativeDocumentMoniker": "OnlineShop.Application\\Cart\\RemoveFromCart.cs",
               "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.Application\\Cart\\RemoveFromCart.cs",
               "RelativeToolTip": "OnlineShop.Application\\Cart\\RemoveFromCart.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAiwDMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T20:34:25.388Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "CartController.cs",
               "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "OnlineShop.UI\\Controllers\\CartController.cs",
               "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Controllers\\CartController.cs",
               "RelativeToolTip": "OnlineShop.UI\\Controllers\\CartController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwCsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAqwCQAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-16T15:42:12.307Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Cart.cshtml",
               "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Cart.cshtml",
               "RelativeDocumentMoniker": "OnlineShop.UI\\Pages\\Cart.cshtml",
               "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Cart.cshtml",
               "RelativeToolTip": "OnlineShop.UI\\Pages\\Cart.cshtml",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAG4AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEcAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-16T15:29:28.295Z",
               "EditorCaption": ""

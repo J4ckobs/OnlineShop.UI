@@ -33,7 +33,6 @@ namespace OnlineShop.Application.Cart
 
 			var cartList = JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
 
-			// Better working solution - seperating server side and client side operations
 			// Server Site Request
 			var stockIds = cartList.Select(y => y.StockId).ToList();
 

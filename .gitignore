@@ -1,2 +1,3 @@
+.gitignore
 OnlineShop.UI/appsettings.json
-OnlineShop.UI/ResetTablelId.sql
+ResetTablelId.sql

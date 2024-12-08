@@ -61,7 +61,7 @@
 			var stockId = e.target.dataset.stockId;
 
 			axios.post("/Cart/RemoveOne/" + stockId)
-				.then(resizeBy => {
+				.then(response => {
 					var id = "stock-" + stockId;
 					var el = document.getElementById(id);
 
@@ -69,9 +69,13 @@
 
 					el.innerText = (qty - 1);
 
+					if(el.innerText == "0") {
+						removeAllFromCart(e);
+					}
+
 				})
 				.catch(err => {
-					alert(err.error);
+					alert(err.message);
 				});
 
 		}
@@ -80,7 +84,7 @@
 			var stockId = e.target.dataset.stockId;
 
 			axios.post("/Cart/AddOne/" + stockId)
-				.then(resizeBy => {
+				.then(response => {
 					var id = "stock-" + stockId;
 					var el = document.getElementById(id);
 
@@ -89,7 +93,7 @@
 					el.innerText = (qty + 1);
 				})
 				.catch(err => {
-					alert(err.error);
+					alert(err.message);
 				});
 		}
 
@@ -97,16 +101,19 @@
 			var stockId = e.target.dataset.stockId;
 
 			axios.post("/Cart/RemoveAll/" + stockId)
-				.then(resizeBy => {
+				.then(response => {
 					var id = "product-" + stockId;
+					console.log(id);
 					var el = document.getElementById(id);
 
 					var qty = parseInt(el.innerText);
 
 					el.outerHTML = "";
+
+					document.getElementById('cart-total').innerHTML = response.data;
 				})
 				.catch(err => {
-					alert(err.error);
+					alert(err.message);
 				});
 		}
 	</script>

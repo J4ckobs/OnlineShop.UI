@@ -34,12 +34,6 @@ namespace OnlineShop.Application.Cart
 
             if(!cartList.Any(x => x.StockId == request.StockId))
                 return true;
-            
-            cartList.Find(x => x.StockId == request.StockId).Quantity -= request.Quantity;
-
-            stringObject = JsonConvert.SerializeObject(cartList);
-
-            _session.SetString("cart", stringObject);
 
             var stockOnHold = _context.StockOnHold
                 .FirstOrDefault(x => x.StockId == request.StockId
@@ -47,23 +41,37 @@ namespace OnlineShop.Application.Cart
 
             var stock = _context.Stock.FirstOrDefault(x => x.Id == request.StockId);
 
-            if(request.RemoveAll)
+			if (request.RemoveAll || stockOnHold.Quantity <= 1)
             {
+                cartList.RemoveAll(x => x.StockId == request.StockId);
+
                 stock.Quantity += stockOnHold.Quantity;
                 stockOnHold.Quantity = 0;
             }
-            else
+            else// if (stockOnHold.Quantity == 1 && request.Quantity >=1)
             {
-                stock.Quantity += request.Quantity;
+				cartList.Find(x => x.StockId == request.StockId).Quantity -= request.Quantity;
+
+				stock.Quantity += request.Quantity;
                 stockOnHold.Quantity -= request.Quantity;
             }
 
-			if(stockOnHold.Quantity <= 0)
-				_context.Remove(stockOnHold);
+            //Cart update | session site
+			stringObject = JsonConvert.SerializeObject(cartList);
 
-            await _context.SaveChangesAsync();
+			_session.SetString("cart", stringObject);
+
+			if (stockOnHold.Quantity <= 0)
+				_context.StockOnHold.Remove(stockOnHold);
+
+			await _context.SaveChangesAsync();
 
             return true;
+        }
+
+        void RemoveItem()
+        {
+
         }
     }
 }
