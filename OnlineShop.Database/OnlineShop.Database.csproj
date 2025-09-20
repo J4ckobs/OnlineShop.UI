@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,9 +18,5 @@
     <ProjectReference Include="..\OnlineShop.Domain\OnlineShop.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CompiledModels\" />
-    <Folder Include="Migrations\" />
-  </ItemGroup>
 
 </Project>

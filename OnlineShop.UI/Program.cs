@@ -1,12 +1,4 @@
-using OnlineShop.Database;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Net.Http.Headers;
 using OnlineShop.UI.Settings;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using System.Security.Claims;
-
 
 namespace OnlineShop.UI
 {

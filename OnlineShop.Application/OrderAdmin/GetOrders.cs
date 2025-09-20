@@ -1,15 +1,17 @@
-﻿using OnlineShop.Database;
-using OnlineShop.Domain.Enums;
+﻿using OnlineShop.Domain.Enums;
+using OnlineShop.Domain.Infrastructure;
+using OnlineShop.Domain.Models;
 
 namespace OnlineShop.Application.OrderAdmin
 {
-    public class GetOrders
+	[Service]
+	public class GetOrders
     {
-        private ApplicationDbContext _context;
+		private readonly IOrderManager _orderManager;
 
-        public GetOrders(ApplicationDbContext context)
+		public GetOrders(IOrderManager orderManager)
         {
-            _context = context;
+            _orderManager = orderManager;
         }
 
 		public class Response
@@ -20,13 +22,14 @@ namespace OnlineShop.Application.OrderAdmin
 		}
 
 		public IEnumerable<Response> Do(int status) =>
-			_context.Orders
-				.Where(x => x.Status == (OrderStatus)status)
-					.Select(order => new Response
-					{
-						Id = order.Id,
-						OrderRef = order.OrderRef,
-						Email = order.Email,
-					}).ToList();
+			_orderManager.GetOrdersByStatus((OrderStatus)status, Projection);
+		
+		private static Func<Order, Response> Projection = (order) =>
+			new Response
+			{
+				Id = order.Id,
+				OrderRef = order.OrderRef,
+				Email = order.Email
+			};
 	}
 }

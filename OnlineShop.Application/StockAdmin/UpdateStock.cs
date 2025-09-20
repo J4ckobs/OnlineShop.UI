@@ -1,28 +1,25 @@
-﻿using OnlineShop.Database;
+﻿using OnlineShop.Domain.Infrastructure;
 using OnlineShop.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Application.StockAdmin
 {
-    public class UpdateStock
+	[Service]
+	public class UpdateStock
     {
-        public ApplicationDbContext _context;
-        public UpdateStock(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+		private IStockManager _stockManager;
 
-        public async Task<Response> Do(Request request)
+		public UpdateStock(IStockManager stockManager)
+		{
+			_stockManager = stockManager;
+		}
+
+		public async Task<Response> Do(Request request)
         {
-            var stocks = new List<Stock>();
+            var stockList = new List<Stock>();
 
             foreach (var stock in request.Stock)
             {
-                stocks.Add(new Stock
+                stockList.Add(new Stock
                 {
                     Id = stock.Id,
                     Description = stock.Description,
@@ -31,9 +28,7 @@ namespace OnlineShop.Application.StockAdmin
                 });
             }
 
-            _context.UpdateRange(stocks);
-
-            await _context.SaveChangesAsync();
+            await _stockManager.UpdateStockRange(stockList);
 
             return new Response
             {

@@ -1,0 +1,11 @@
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.csproj.AssemblyReference.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.GeneratedMSBuildEditorConfig.editorconfig
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.AssemblyInfoInputs.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.AssemblyInfo.cs
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.csproj.CoreCompileInputs.cache
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.sourcelink.json
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\bin\Debug\netstandard2.0\OnlineShop.Domain.deps.json
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\bin\Debug\netstandard2.0\OnlineShop.Domain.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\bin\Debug\netstandard2.0\OnlineShop.Domain.pdb
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.dll
+L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Domain\obj\Debug\netstandard2.0\OnlineShop.Domain.pdb

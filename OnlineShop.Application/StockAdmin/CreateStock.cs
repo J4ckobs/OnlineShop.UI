@@ -1,19 +1,16 @@
-﻿using OnlineShop.Database;
+﻿using OnlineShop.Domain.Infrastructure;
 using OnlineShop.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Application.StockAdmin
 {
-    public class CreateStock
+	[Service]
+	public class CreateStock
     {
-        public ApplicationDbContext _context;
-        public CreateStock(ApplicationDbContext context)
+        private IStockManager _stockManager;
+
+        public CreateStock(IStockManager stockManager)
         {
-            _context = context;
+            _stockManager = stockManager;
         }
 
         public async Task<Response> Do(Request request)
@@ -25,9 +22,7 @@ namespace OnlineShop.Application.StockAdmin
                 Quantity = request.Quantity
             };
             
-            _context.Add(stock);
-
-            await _context.SaveChangesAsync();
+            await _stockManager.CreateStock(stock);
 
             return new Response
             {

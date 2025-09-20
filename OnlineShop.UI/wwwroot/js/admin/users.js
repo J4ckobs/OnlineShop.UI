@@ -1,12 +1,18 @@
 ﻿var app = new Vue({
     el: "#app",
     data: {
+        editing: false,
         username: "",
         password: "",
         users: []
     },
-
+    mounted() {
+        this.getUsers();
+    },
     methods: {
+        newUser() {
+            this.editing = true;
+        },
         createUser() {
             axios.post('/users', {
                 username: this.username,
@@ -42,15 +48,24 @@
                     console.log(err);
                 })
         },
+        cancelAddingUser() {
+            this.editing = false;
+            this.username = "";
+            this.password = "";
+        }
         //To add later
 /*        editUser(id, index) { 
             this.objectIndex = index;
             this.getProduct(id);
             this.editing = true;
         },*/
-    },
-
-    mounted() {
-        this.getUsers();
     }
+});
+
+const toolbar = document.getElementById('addUserBtn');
+
+toolbar.addEventListener('click', () => app.newUser());
+
+app.$watch('editing', (val) => {
+    toolbar.classList.toggle('is-hidden', val);
 });

@@ -1,55 +1,71 @@
 ﻿@page
 @model OnlineShop.UI.Pages.Admin.IndexModel
-@{
+
+<!-- Główna zawartość -->
+
+@section Toolbar {
+		<button id="addProductBtn" class="button is-success">Add Product</button>
+}
+
+@section Filters {
+	<div v-show="!editing" class="is-hidden field has-addons">
+        <div class="control">
+            <input class="input" type="text" placeholder="Search products">
+        </div>
+        <div class="control">
+            <button class="button is-info">Search</button>
+        </div>
+    </div>
 }
 
 <div id="app" class="container">
-	<div>
-		<div v-if="!editing">
-			<button class="button" v-on:click="newProduct">Add New Product</button>
-			<table class="table">
-				<tr>
-					<td>Id</td>
-					<td>Product</td>
-					<td>Value</td>
-				</tr>
-				<tr v-for="(product, index) in products">
-					<td>{{product.id}}</td>
-					<td>{{product.name}}</td>
-					<td>{{product.value}}</td>
-					<td><a style="color: darkblue; text-decoration:underline;" v-on:click="editProduct(product.id, index)">Edit</a></td>
-					<td><a style="color: darkblue; text-decoration:underline;" v-on:click="deleteProduct(product.id, index)">Remove</a></td>
-				</tr>
-			</table>
+	<table v-if="!editing" class="table is-fullwidth is-striped is-hoverable">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Value</th>
+				<th class="has-text-centered">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="(product, index) in products">
+				<td>{{ product.id }}</td>
+				<td>{{ product.name }}</td>
+				<td>{{ product.value }}</td>
+				<td class="has-text-centered">
+					<a class="has-text-link" v-on:click="editProduct(product.id, index)">Edit</a> |
+					<a class="has-text-danger" v-on:click="deleteProduct(product.id, index)">Remove</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div v-else>
+		<div class="field">
+			<label class="label">Name</label>
+			<div class="control">
+				<input class="input" v-model="productModel.name" />
+			</div>
+		</div>
+		<div class="field">
+			<label class="label">Description</label>
+			<div class="control">
+				<input class="input" v-model="productModel.description" />
+			</div>
+		</div>
+		<div class="field">
+			<label class="label">Value</label>
+			<div class="control">
+				<input class="input" v-model="productModel.value" />
+			</div>
 		</div>
 
-		<div v-else>
-			<div class="field">
-				<label class="label">Name</label>
-				<div class="control">
-					<input class="input" v-model="productModel.name" />
-				</div>
-			</div>
-			<div class="field">
-				<label class="label">Description</label>
-				<div class="control">
-					<input class="input" v-model="productModel.description" />
-				</div>
-			</div>
-			<div class="field">
-				<label class="label">Value</label>
-				<div class="control">
-					<input class="input" v-model="productModel.value" />
-				</div>
-			</div>
-
-			<button class="button is-success" v-on:click="createProduct" v-if="!productModel.id">Create Product</button>
-			<button class="button is-warning" v-on:click="updateProduct" v-else="">Update Product</button>
-			<button class="button" v-on:click="cancelUpdateProduct">Cancel</button>
-		</div>
+		<button class="button is-success" v-on:click="createProduct" v-if="!productModel.id">Create Product</button>
+		<button class="button is-warning" v-on:click="updateProduct" v-else="">Update Product</button>
+		<button class="button" v-on:click="cancelUpdateProduct">Cancel</button>
 	</div>
-</div>
 
+</div>
 
 @section scripts {
 	<script src="~/js/admin/products.js"></script>

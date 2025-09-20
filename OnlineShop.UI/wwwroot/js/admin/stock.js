@@ -6,8 +6,7 @@ var app = new Vue({
         products: [],
         newStock: {
             productId: 0,
-            name: "Name",
-            description: "Size",
+            description: "",
             quantity: 10
         }
     },

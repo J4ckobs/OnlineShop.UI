@@ -1,25 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
-using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
 
 namespace OnlineShop.Application.Cart
 {
+	[Service]
 	public class ClearCart
 	{
-		private ISession _session;
+		private ISessionManager _sessionManager;
 
-		public ClearCart(ISession session)
+		public ClearCart(ISessionManager sessionManager)
         {
-			_session = session;
+			_sessionManager = sessionManager;
         }
 
 		public void Do()
 		{
-			_session.Remove("cart");
+			_sessionManager.ClearCart();
 		}
     }
 }

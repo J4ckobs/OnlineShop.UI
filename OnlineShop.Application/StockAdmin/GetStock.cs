@@ -1,41 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
 
 namespace OnlineShop.Application.StockAdmin
 {
-    public class GetStock
+	[Service]
+	public class GetStock
     {
-        public ApplicationDbContext _context;
-        public GetStock(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+		private readonly IProductManager _productManager;
 
-        public IEnumerable<ProductViewModel> Do()
-        {
-            var stock = _context.Products
-                .Include(x => x.Stock)
-                .Select(x => new ProductViewModel
-                {
-                    Id = x.Id,
-                    Name = x.Name,
-                    Description = x.Description,
-                    Stock = x.Stock.Select(y => new StockViewModel
-                    {
-                        Id = y.Id,
-                        Description = y.Description,
-                        Quantity = y.Quantity
-                    })
-                })
-                .ToList();
-
-            return stock;
-        }
+		public GetStock(IProductManager productManager)
+		{
+			_productManager = productManager;
+		}
 
         public class StockViewModel
         {
@@ -50,6 +25,23 @@ namespace OnlineShop.Application.StockAdmin
             public string Name { get; set; }
             public string Description { get; set; } 
             public IEnumerable<StockViewModel> Stock { get; set; } = Enumerable.Empty<StockViewModel>();
+        }
+
+		public IEnumerable<ProductViewModel> Do()
+        {
+            return _productManager.GetProductsWithStock(x =>
+                new ProductViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Description = x.Description,
+                    Stock = x.Stock.Select(y => new StockViewModel
+                    {
+                        Id = y.Id,
+                        Description = y.Description,
+                        Quantity = y.Quantity
+                    })
+                });
         }
     }
 }

@@ -5,51 +5,7 @@
 
 <div class="container">
 	<div class="columns">
-		<div class="column is-8 is-offset-2">
-			@foreach (var product in Model.Cart)
-			{
-				<div class="level" id="product-@product.StockId">
-					<div class="level-item">
-						<figure class="image is-128x128">       
-							<img src="~/images/item.jpg" />
-						</figure>
-					</div>
-					<div class="level-item">
-						<p class="title">
-							@product.Name
-						</p>
-					</div>
-					<div class="level-item">
-						<div class="columns is-gapless has-text-centered is-mobile is-multiline">
-							<div class="column is-4">
-								<button class="button" type="button" onclick="removeOneFromCart(event)" data-stock-id="@product.StockId">
-									-
-								</button>
-								</div>
-							<div class="column is-4 is-align-self-center" id="stock-@product.StockId">
-								<p> @product.Quantity</p>
-							</div>
-							<div class="column is-4">
-								<button class="button" type="button" onclick="addOneToCart(event)" data-stock-id="@product.StockId">
-									+
-								</button>
-							</div>
-							<div class="column is-12">
-								<a class="has-text-danger" onclick="removeAllFromCart(event)" data-stock-id="@product.StockId">
-									Remove</a>
-							</div>
-						</div>
-					</div>
-					<div class="level-item">
-						<p> @product.Value</p>
-					</div>
-				</div>
-			}
-			<div class="has-text-right">
-				<a class="button is-text" asp-page="Index">Return to Shop</a>
-				<a class="button is-success" asp-page="/Checkout/CustomerInformation">Checkout</a>
-			</div>
-		</div>
+		<partial name="_CartPartial" model="@Model.Cart"/>
 	</div>
 </div>
 
@@ -57,11 +13,40 @@
 	<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.js"></script>
 
 	<script>
+
+		var addOneToCart = function (e) {
+			var stockId = e.target.dataset.stockId;
+
+			axios.post("/Cart/AddOne/" + stockId)
+				.then(response => {
+					updateCart();
+				})
+				.catch(err => {
+					alert(err.message);
+				});
+		}
+
 		var removeOneFromCart = function (e) {
 			var stockId = e.target.dataset.stockId;
 
-			axios.post("/Cart/RemoveOne/" + stockId)
+			removeFromCart(stockId, 1);
+		}
+
+		var removeAllFromCart = function (e) {
+			var stockId = e.target.dataset.stockId;
+			var id = "stock-qty-" + stockId;
+			var el = document.getElementById(id);
+			var qty = parseInt(el.innerText);
+
+			removeFromCart(stockId, qty);
+		}
+
+		var removeFromCart = function(stockId, qty) {
+
+			axios.post("/Cart/Remove/" + stockId + "/" + qty)
 				.then(response => {
+					updateCart();
+					/*
 					var id = "stock-" + stockId;
 					var el = document.getElementById(id);
 
@@ -69,48 +54,31 @@
 
 					el.innerText = (qty - 1);
 
-					if(el.innerText == "0") {
+					if (el.innerText == "0") {
 						removeAllFromCart(e);
-					}
+					}*/
 
-				})
-				.catch(err => {
-					alert(err.message);
-				});
-
-		}
-
-		var addOneToCart = function (e) {
-			var stockId = e.target.dataset.stockId;
-
-			axios.post("/Cart/AddOne/" + stockId)
-				.then(response => {
-					var id = "stock-" + stockId;
-					var el = document.getElementById(id);
-
-					var qty = parseInt(el.innerText);
-
-					el.innerText = (qty + 1);
 				})
 				.catch(err => {
 					alert(err.message);
 				});
 		}
 
-		var removeAllFromCart = function (e) {
-			var stockId = e.target.dataset.stockId;
+		var updateCart = function () {
+			axios.get("/Cart/GetCartComponent")
+				.then(res => {
+					var html = res.data;
+					var el = document.getElementById('cart-nav');
 
-			axios.post("/Cart/RemoveAll/" + stockId)
-				.then(response => {
-					var id = "product-" + stockId;
-					console.log(id);
-					var el = document.getElementById(id);
+					el.outerHTML = html;
+				});
 
-					var qty = parseInt(el.innerText);
+			axios.get("/Cart/GetCartMain")
+				.then(res => {
+					var html = res.data;
+					var el = document.getElementById('cart-main');
 
-					el.outerHTML = "";
-
-					document.getElementById('cart-total').innerHTML = response.data;
+					el.outerHTML = html;
 				})
 				.catch(err => {
 					alert(err.message);

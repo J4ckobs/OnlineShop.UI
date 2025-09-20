@@ -1,34 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
+using OnlineShop.Domain.Models;
 
 namespace OnlineShop.Application.Products
 {
-    public class GetProducts
+	[Service]
+	public class GetProducts
     {
-        private ApplicationDbContext _context;
-        public GetProducts(ApplicationDbContext ctx)
+		private IProductManager _productManager;
+
+		public GetProducts(IProductManager productManager)
         {
-            _context = ctx;
+            _productManager = productManager;
         }
-
-        public IEnumerable<ProductViewModel> Do() =>
-            _context.Products
-            .Include(x => x.Stock)
-            .Select(x => new ProductViewModel
-            {
-                Name = x.Name,
-                Description = x.Description,
-                Value = $"{x.Value.ToString("N2")} $", // 1100.50 -> 1,100.50 -> 1,100.50 $
-
-                StockCount = x.Stock.Sum(y => y.Quantity)
-            })
-			.ToList();
-
+       
         public class ProductViewModel
         {
 			public string Name { get; set; }
@@ -36,5 +20,17 @@ namespace OnlineShop.Application.Products
             public string Value { get; set; }
             public int StockCount { get; set; }
         }
-    }
+
+        public IEnumerable<ProductViewModel> Do() =>
+            _productManager.GetProductsWithStock(Projection);
+
+        private Func<Product, ProductViewModel> Projection = (product) => new ProductViewModel
+        {
+            Name = product.Name,
+            Description = product.Description,
+            Value = product.Value.GetValueString(),
+            StockCount = product.Stock.Sum(y => y.Quantity)
+        };
+
+	}
 }

@@ -1,0 +1,9 @@
+﻿.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    transform: translate(0, 25%);
+}

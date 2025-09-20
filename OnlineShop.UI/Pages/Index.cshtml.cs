@@ -1,29 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OnlineShop.Application.Products;
-using OnlineShop.Database;
 
 namespace OnlineShop.UI.Pages
 {
     public class IndexModel : PageModel
     {
-        private ApplicationDbContext _context;
-        public IndexModel(ApplicationDbContext ctx)
-        {
-            _context = ctx;
-        }
-
-        [BindProperty] //Znacznik g³ównego modelu
-        public Application.ProductsAdmin.CreateProduct.Request Product { get; set; } = new Application.ProductsAdmin.CreateProduct.Request();
-
         public IEnumerable<GetProducts.ProductViewModel> Products { get; set; }
 
-        public void OnGet()
+        public void OnGet([FromServices] GetProducts getProducts)
         {
-            Products = new GetProducts(_context).Do();
+            Products = getProducts.Do();
         }
 
-        public async Task<IActionResult> OnPost()
+        public IActionResult OnPost()
         {
             return RedirectToPage("Index");
         }

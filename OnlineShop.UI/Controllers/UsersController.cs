@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using OnlineShop.Application.ProductsAdmin;
-using OnlineShop.Application.StockAdmin;
-using OnlineShop.Application.UserAdmin;
-using OnlineShop.Database;
+using OnlineShop.UI.ViewModels.Admin;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace OnlineShop.UI.Controllers
 {
@@ -12,27 +11,67 @@ namespace OnlineShop.UI.Controllers
     [Authorize(Policy = "Manager")]
     public class UsersController : Controller
     {
-        private CreateUser _createUser;
-        private UserManager<IdentityUser> _getUsers;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UsersController(CreateUser createUser, UserManager<IdentityUser> getUsers)
+        public UsersController(UserManager<IdentityUser> userManager)
         {
-            _createUser = createUser;
-            _getUsers = getUsers;
+            _userManager = userManager;
         }
 
-        [HttpPost("")]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUser.Request request)
-        {
-            await _createUser.Do(request);
+        public class ProductViewModel
+		{
+            public string? Username { get; set; }
+			public string? Id { get; set; }
+			public string? Role { get; set; }
+		}
 
-            return Ok();
+        [HttpPost("")]
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserViewModel vm)
+        {
+			var managerUser = new IdentityUser()
+			{
+				UserName = vm.Username
+			};
+
+			await _userManager.CreateAsync(managerUser, vm.Password);
+
+			var managerClaim = new Claim("Role", "Manager");
+
+			await _userManager.AddClaimAsync(managerUser, managerClaim);
+
+			return Ok();
         }
 
         [HttpGet("")]
-        public IActionResult GetUsers() => Ok(new GetUsers(_getUsers).Do());
+        public async Task<IActionResult> GetUsers()
+        {
+			var usersQuery = _userManager.Users.ToList();
+			var users = new List<ProductViewModel>();
+
+			foreach(var user in usersQuery)
+			{
+				var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
+				users.Add(new ProductViewModel
+				{
+					Id = user.Id,
+					Username = user.UserName,
+					Role = role
+				});
+			}
+
+			return Ok(users);
+		}
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(string id) => Ok(await new DeleteUser(_getUsers).DoAsync(id));
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+			var User = _userManager.Users.FirstOrDefault(x => x.Id == id);
+
+			if (User != null)
+				return Ok(await _userManager.DeleteAsync(User));
+
+			return Ok("User not found");
+
+        }
 	}
 }

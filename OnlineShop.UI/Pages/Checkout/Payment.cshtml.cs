@@ -2,30 +2,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OnlineShop.Application.Cart;
 using OnlineShop.Application.Orders;
-using OnlineShop.Database;
 using Stripe;
-using Stripe.Checkout;
 using static OnlineShop.Application.Cart.GetCustomerInformation;
+using GetOrderCart = OnlineShop.Application.Cart.GetOrder;
 
 namespace OnlineShop.UI.Pages.Checkout
 {
     public class PaymentModel : PageModel
     {
-		private ApplicationDbContext _context;
-
 		public string SessionId { get; set; }
 
 		public Request customerInformation { get; set; }
 
-		public PaymentModel(IConfiguration config, ApplicationDbContext context)
+		public PaymentModel(IConfiguration config)
         {
             StripeConfiguration.ApiKey = config["StripeSettings:SecretKey"].ToString();
-			_context = context;
 		}
 
-		public IActionResult OnGet()
+		public IActionResult OnGet(
+			[FromServices] GetCustomerInformation getCustomerInformation)
         {
-			customerInformation = new GetCustomerInformation(HttpContext.Session).Do();
+			customerInformation = getCustomerInformation.Do();
 
 			if (customerInformation == null)
 				return RedirectToPage("/Checkout/CustomerInformation");
@@ -33,23 +30,26 @@ namespace OnlineShop.UI.Pages.Checkout
             return Page();
 		}
 
-		public async Task<IActionResult> OnPost(string stripeEmail, string stripeToken)
+		public async Task<IActionResult> OnPost(
+			string stripeEmail,
+			string stripeToken,
+			[FromServices] GetOrderCart getOrder,
+			[FromServices] CreateOrder createOrder)
 		{
 			var currency = "pln";
 			var successUrl = Url.PageLink("Success"); //"https://localhost:7020/Success";
 			var cancelUrl = "https://localhost:7020/";
 
 			var customers = new CustomerService();
+			var charges = new ChargeService();
 
-			var CartOrder = new Application.Cart.GetOrder(HttpContext.Session,_context).Do();
+			var cartOrder = getOrder.Do();
 
-			if (CartOrder.Products == null || CartOrder.CustomerInformation == null)
+			if (cartOrder.Products == null || cartOrder.CustomerInformation == null)
 				return RedirectToPage("/Index");
 
-
-			var productsIds = CartOrder.Products.Select(x => x.StockId).ToList();
-			var products = _context.Stock.Where(x => productsIds.Contains(x.Id)).ToList();
-
+			//var productsIds = cartOrder.Products.Select(x => x.StockId).ToList();
+			//var products = _context.Stock.Where(x => productsIds.Contains(x.Id)).ToList();
 
 			var customer = customers.Create(new CustomerCreateOptions
 			{
@@ -57,6 +57,15 @@ namespace OnlineShop.UI.Pages.Checkout
 				Source = stripeToken
 			});
 
+			var charge = charges.Create(new ChargeCreateOptions
+			{
+				Amount = cartOrder.GetTotalCharge(),
+				Description = "Shop Purchase",
+				Currency = currency,
+				Customer = customer.Id
+			});
+
+			/*
 			var stripePaymentOptions = new SessionCreateOptions
 			{
 				Customer = customer.Id,
@@ -69,7 +78,7 @@ namespace OnlineShop.UI.Pages.Checkout
 
 				AllowPromotionCodes = false,
 
-				LineItems = CartOrder.Products
+				LineItems = cartOrder.Products
 					.Select(x => new SessionLineItemOptions
 					{
 						PriceData = new SessionLineItemPriceDataOptions
@@ -92,32 +101,34 @@ namespace OnlineShop.UI.Pages.Checkout
 			var service = new SessionService();
 			var session = service.Create(stripePaymentOptions);
 			SessionId = session.Id;
+			*/
 
 			var sessionId = HttpContext.Session.Id;
 
-			await new CreateOrder(_context).Do(new CreateOrder.Request
+			await createOrder.Do(new CreateOrder.Request
 			{
 				StripeReference = customer.Id,
 				SessionId = sessionId,
 
-				FirstName = CartOrder.CustomerInformation.FirstName,
-				LastName = CartOrder.CustomerInformation.LastName,
-				Email = CartOrder.CustomerInformation.Email,
-				PhoneNumber = CartOrder.CustomerInformation.PhoneNumber,
+				FirstName = cartOrder.CustomerInformation.FirstName,
+				LastName = cartOrder.CustomerInformation.LastName,
+				Email = cartOrder.CustomerInformation.Email,
+				PhoneNumber = cartOrder.CustomerInformation.PhoneNumber,
 
-				Address1 = CartOrder.CustomerInformation.Address1,
-				Address2 = CartOrder.CustomerInformation.Address2,
-				City = CartOrder.CustomerInformation.City,
-				PostCode = CartOrder.CustomerInformation.PostCode,
+				Address1 = cartOrder.CustomerInformation.Address1,
+				Address2 = cartOrder.CustomerInformation.Address2,
+				City = cartOrder.CustomerInformation.City,
+				PostCode = cartOrder.CustomerInformation.PostCode,
 
-				Stocks = CartOrder.Products.Select( x => new CreateOrder.Stock
+				Stocks = cartOrder.Products.Select( x => new CreateOrder.Stock
 				{
 					StockId = x.StockId,
 					Quantity = x.Quantity,
 				}).ToList()
 			});
 
-			return Redirect(session.Url);
+			//return Redirect(session.Url);
+			return RedirectToPage("/Index");
 		}
     }
 }

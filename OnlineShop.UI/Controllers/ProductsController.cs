@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Application.ProductsAdmin;
-using OnlineShop.Database;
 
 namespace OnlineShop.UI.Controllers
 {
@@ -9,29 +8,33 @@ namespace OnlineShop.UI.Controllers
     [Authorize]
     public class ProductsController : Controller
     {
-        private ApplicationDbContext _context;
-
-        public ProductsController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-
         //Products
-        [HttpGet("")]
-        public IActionResult GetProducts() => Ok(new GetProducts(_context).Do());
+        [HttpGet]
+        public IActionResult GetProducts([FromServices] GetProducts getProducts) => 
+            Ok(getProducts.Do());
 
         [HttpGet("{id}")]
-        public IActionResult GetProduct(int id) => Ok(new GetProduct(_context).Do(id));
+        public IActionResult GetProduct(
+            int id,
+			[FromServices] GetProduct getProduct) => 
+            Ok(getProduct.Do(id));
 
-        [HttpPost("")]
-        public async Task<IActionResult> CreateProduct([FromBody] CreateProduct.Request request) => Ok(await new CreateProduct(_context).Do(request));
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct(
+            [FromBody] CreateProduct.Request request,
+			[FromServices] CreateProduct createProduct) => 
+            Ok(await createProduct.Do(request));
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id) => Ok(await new DeleteProduct(_context).Do(id));
+        public async Task<IActionResult> DeleteProduct(
+            int id,
+			[FromServices] DeleteProduct deleteProduct) =>
+            Ok(await deleteProduct.Do(id));
 
-        [HttpPut("")]
-        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProduct.Request request) => Ok(await new UpdateProduct(_context).Do(request));
-
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(
+            [FromBody] UpdateProduct.Request request,
+			[FromServices] UpdateProduct updateProduct) =>
+            Ok(await updateProduct.Do(request));
     }
 }

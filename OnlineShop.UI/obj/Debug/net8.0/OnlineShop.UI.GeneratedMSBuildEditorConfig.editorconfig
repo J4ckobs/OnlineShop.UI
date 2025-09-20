@@ -17,6 +17,8 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.UI
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Accounts/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudHNcTG9naW4uY3NodG1s
@@ -62,14 +64,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRcU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Components/Cart/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xDYXJ0XERlZmF1bHQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Components/Cart/Small.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xDYXJ0XFNtYWxsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,6 +82,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Product.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Shared/Components/Cart/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcQ2FydFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Shared/Components/Cart/Small.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcQ2FydFxTbWFsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Shared/_CartPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9DYXJ0UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/Programy/VS Projects/.NET/Kurs_Piotr_Gankiewicz/Workaroud_apis/OnlineShop.UI/OnlineShop.UI/Pages/Shared/_ValidationScriptsPartial.cshtml]

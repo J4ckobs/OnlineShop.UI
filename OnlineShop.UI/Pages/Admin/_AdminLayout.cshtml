@@ -7,51 +7,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - OnlineShop.UI</title>
     <link rel="stylesheet" href="~/OnlineShop.UI.styles.css" asp-append-version="true" />
-
-	<!--<link href="~/lib/bulma/css/bulma.css" rel="stylesheet" />-->
-	<link href="~/lib/bulma/css/versions/bulma-no-dark-mode.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/bulma/css/versions/bulma-no-dark-mode.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h3 class="title has-text-centered">Admin Panel</h3>
-    
-    <div class="container">
-        <div class="columns">
-            <div class="column is-3">
-                <div class="menu">
+    <section class="section">
+        <div class="container">
+            <div class="is-flex is-align-items-center is-justify-content-space-between mb-4">
+                <h3 class="title has-text-left">Admin Panel</h3>
+                <a asp-page="/Index" class="button is-medium">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="is-hidden-mobile">&nbsp; Back to Main</span>
+                </a>
+            </div>
+
+            <!-- Tabs navigation -->
+            <div class="tabs is-boxed is-left">
+                <ul>
                     @if ((await authService.AuthorizeAsync(User, "Manager")).Succeeded)
                     {
-                        <p class="menu-label">Store Menu</p>
-                        <ul class="menu-list">
-                            <li><a asp-page="/Admin/Index">Products</a></li>
-                            <li><a asp-page="/Admin/OrderManagment">Order Managment</a></li>
-                            <li><a asp-page="/Admin/Stock">Stock</a></li>
-                        </ul>
+                        <li class="@(ViewData["ActiveTab"] as string == "Products" ? "is-active" : "")">
+                            <a asp-page="/Admin/Index">
+                                <i class="fa fa-shopping-basket" aria-hidden="true"> </i>&nbsp;
+                                <p class="is-hidden-mobile">Products</p>
+                            </a>
+                        </li>
+                        <li class="@(ViewData["ActiveTab"] as string == "Stock" ? "is-active" : "")">
+                            <a asp-page="/Admin/Stock">
+                                <i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;
+                                <p class="is-hidden-mobile">Stock</p>
+                            </a>
+                        </li>
+                        <li class="@(ViewData["ActiveTab"] as string == "Orders" ? "is-active" : "")">
+                            <a asp-page="/Admin/OrderManagment">
+                                <i class="fa fa-truck" aria-hidden="true"></i>&nbsp;
+                                <p class="is-hidden-mobile">Orders</p>
+                            </a>
+                        </li>
                     }
-                    @if((await authService.AuthorizeAsync(User, "Admin")).Succeeded)
+                    @if ((await authService.AuthorizeAsync(User, "Admin")).Succeeded)
                     {
-                        <p class="menu-label">Admin Menu</p>
-                        <ul class="menu-list">
-                            <li><a asp-page="/Admin/ConfigureUsers">Configure Users</a></li>
-                        </ul>
+                        <li class="@(ViewData["ActiveTab"] as string == "Users" ? "is-active" : "")">
+                            <a asp-page="/Admin/ConfigureUsers">
+                                <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
+                                <p class="is-hidden-mobile">Users</p>
+                            </a>
+                        </li>
                     }
 
-                    <p class="menu-label"></p>
-                    <ul class="menu-list">
-                        <li><a asp-page="/Index">Back to Main</a></li>
-                    </ul>
-                </div>
+                    <div id="ap" class="ml-auto is-flex is-align-items-center is-justify-content-flex-end" style="gap: 1rem;">
+                        <div class="filters">
+                            @RenderSection("Filters", required: false)
+                        </div>
+                        <div class="toolbar">
+                            @RenderSection("Toolbar", required: false)
+                        </div>
+                    </div>
+                </ul>
+                    
+                
             </div>
-            <div class="column is-9">
+
+            <!-- Main content area -->
+            <div class="box">
                 @RenderBody()
             </div>
         </div>
-    </div>
-
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.js"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

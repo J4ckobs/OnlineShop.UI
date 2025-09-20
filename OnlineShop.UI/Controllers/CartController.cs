@@ -1,29 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Application.Cart;
-using OnlineShop.Database;
 
 namespace OnlineShop.UI.Controllers
 {
 	[Route("[controller]/[action]")]
 	public class CartController : Controller
 	{
-		private ApplicationDbContext _context;
-
-		public CartController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
         [HttpPost("{stockId}")]
-		public async Task<IActionResult> AddOne(int stockId)
+		public async Task<IActionResult> AddOne(
+			int stockId,
+			[FromServices] AddToCart addToCart)
 		{
 			var request = new AddToCart.Request
 			{
 				StockId = stockId,
 				Quantity = 1
 			};
-
-			var addToCart = new AddToCart(HttpContext.Session, _context);
 
 			var success = await addToCart.DoAsync(request);
 
@@ -33,16 +25,17 @@ namespace OnlineShop.UI.Controllers
 			return BadRequest("Failed to add item to cart");
 		}
 
-		[HttpPost("{stockId}")]
-		public async Task<IActionResult> RemoveOne(int stockId)
+		[HttpPost("{stockId}/{qty}")]
+		public async Task<IActionResult> Remove(
+			int stockId,
+			int qty,
+			[FromServices] RemoveFromCart removeFromCart)
 		{
 			var request = new RemoveFromCart.Request
 			{
 				StockId = stockId,
-				Quantity = 1
+				Quantity = qty
 			};
-
-			var removeFromCart = new RemoveFromCart(HttpContext.Session, _context);
 
 			var success = await removeFromCart.DoAsync(request);
 
@@ -52,23 +45,20 @@ namespace OnlineShop.UI.Controllers
 			return BadRequest("Failed to remove item from cart");
 		}
 
-		[HttpPost("{stockId}")]
-		public async Task<IActionResult> RemoveAll(int stockId)
+		[HttpGet]
+		public IActionResult GetCartComponent([FromServices] GetCart getCart)
 		{
-			var request = new RemoveFromCart.Request
-			{
-				StockId = stockId,
-				RemoveAll = true
-			};
+			var totalValue = getCart.Do().Sum(x => x.RealValue * x.Quantity);
 
-			var removeAllFromCart = new RemoveFromCart(HttpContext.Session, _context);
+			return PartialView("Components/Cart/Small", $"{totalValue} $");
+		}
 
-			var success = await removeAllFromCart.DoAsync(request);
+		[HttpGet]
+		public IActionResult GetCartMain([FromServices] GetCart getCart)
+		{
+			var cart = getCart.Do();
 
-			if (success)
-				return Ok("Cart cleared"); // TO DO: return value decreased by value of removed items when more items in cart
-
-			return BadRequest("Failed to cleared cart");
+			return PartialView("_CartPartial", cart);
 		}
 	}
 }

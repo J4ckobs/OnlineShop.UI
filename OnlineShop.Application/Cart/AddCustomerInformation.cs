@@ -1,19 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
+﻿using OnlineShop.Domain.Infrastructure;
 using OnlineShop.Domain.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.Application.Cart
 {
+	[Service]
 	public class AddCustomerInformation
 	{
-		private ISession _session;
-		public AddCustomerInformation(ISession session)
+		private ISessionManager _sessionManager;
+
+		public AddCustomerInformation(ISessionManager sessionManager)
 		{
-			_session = session;
+			_sessionManager = sessionManager;
 		}
+
 		public class Request
 		{
 			[Required]
@@ -39,7 +39,7 @@ namespace OnlineShop.Application.Cart
 
 		public void Do(Request request)
 		{
-			var customerInformation = new CustomerInformation
+			_sessionManager.AddCustomerInformation(new CustomerInformation
 			{
 				FirstName = request.FirstName,
 				LastName = request.LastName,
@@ -50,12 +50,7 @@ namespace OnlineShop.Application.Cart
 				Address2 = request.Address2,
 				City = request.City,
 				PostCode = request.PostCode,
-			};
-
-			var stringObject = JsonConvert.SerializeObject(customerInformation);
-
-
-			_session.SetString("customer-info", stringObject);
+			});
 		}
 	}
 }

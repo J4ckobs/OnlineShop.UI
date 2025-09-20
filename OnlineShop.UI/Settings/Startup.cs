@@ -1,7 +1,8 @@
-﻿using Microsoft.Net.Http.Headers;
-using OnlineShop.Database;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
+using OnlineShop.Database;
 using System.Security.Claims;
 
 namespace OnlineShop.UI.Settings
@@ -11,8 +12,10 @@ namespace OnlineShop.UI.Settings
         //Services configuration
         public static void ConfigureServices(WebApplicationBuilder builder)
         {
-            // Database
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+			builder.Services.AddHttpContextAccessor();
+
+			// Database
+			var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
                 ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
             builder.Services.AddDbContext<ApplicationDbContext>(context =>
@@ -39,13 +42,8 @@ namespace OnlineShop.UI.Settings
             // Authorization
             builder.Services.AddAuthorization(options =>
             {
-                options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "Admin"));
-                //options.AddPolicy("Manager", policy => policy.RequireClaim("Role", "Manager"));
-
-                options.AddPolicy("Manager", policy => policy
-                    .RequireAssertion(context => context
-                        .User.HasClaim("Role","Manager")
-                            || context.User.HasClaim("Role", "Admin")));
+				options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+				options.AddPolicy("Manager", policy => policy.RequireRole("Manager", "Admin"));
             });
 
             // Session | Cookies
@@ -77,36 +75,16 @@ namespace OnlineShop.UI.Settings
             {
                 using var scope = app.Services.CreateScope();
                 {
-                    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                    var roleManager = scope.ServiceProvider.GetRequiredService<Microsoft.AspNetCore.Identity.RoleManager<IdentityRole>>();
 
-                    context.Database.EnsureCreated();
+                    string[] roles = new[] { "Admin", "Manager" };
 
-                    if (!context.Users.Any())
-                    {
-                        var adminUser = new IdentityUser()
-                        {
-                            UserName = "Admin"
-                        };
+					foreach (var role in roles)
 
-                        var managerUser = new IdentityUser()
-                        {
-                            UserName = "Manager"
-                        };
-
-                        var adminResult = userManager.CreateAsync(adminUser, "password").GetAwaiter().GetResult();
-                        var managerResult = userManager.CreateAsync(managerUser, "password").GetAwaiter().GetResult();
-                        
-                        var adminClaim = new Claim("Role", "Admin");
-                        var managerClaim = new Claim("Role", "Manager");
-
-                        if(adminResult.Succeeded)
-                            userManager.AddClaimAsync(adminUser, adminClaim).GetAwaiter().GetResult();
-                        
-                        if(managerResult.Succeeded)
-                            userManager.AddClaimAsync(managerUser, managerClaim).GetAwaiter().GetResult();
-                       }
-                }
+                        if(!roleManager.RoleExistsAsync(role).GetAwaiter().GetResult())
+                            
+                            roleManager.CreateAsync(new IdentityRole(role)).GetAwaiter().GetResult();
+				}
             }
             catch (Exception ex)
             {

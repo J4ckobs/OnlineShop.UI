@@ -1,36 +1,35 @@
-﻿using OnlineShop.Database;
+﻿using OnlineShop.Domain.Infrastructure;
 using OnlineShop.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Application.ProductsAdmin
 {
-    public class GetProduct
+	[Service]
+	public class GetProduct
     {
-        private ApplicationDbContext _context;
-        public GetProduct(ApplicationDbContext ctx)
+		private IProductManager _productManager;
+
+		public GetProduct(IProductManager productManager)
         {
-            _context = ctx;
+            _productManager = productManager;
+        }
+
+		public class ProductViewModel
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+			public string Description { get; set; }
+            public decimal Value { get; set; }
         }
 
         public ProductViewModel Do(int id) =>
-            _context.Products.Where(x => x.Id == id).Select(x => new ProductViewModel {
-                Id = x.Id,
-                Name = x.Name,
-				Description = x.Description,
-                Value = x.Value
-            })
-            .FirstOrDefault();
+            _productManager.GetProductById(id, Projection);
 
-        public class ProductViewModel
+        private Func<Product, ProductViewModel> Projection = (product) => new ProductViewModel
         {
-            public int Id { get; set; } = 0;
-            public string Name { get; set; } = "";
-			public string Description { get; set; } = "";
-            public decimal Value { get; set; } = 0;
-        }
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            Value = product.Value
+        };
     }
 }

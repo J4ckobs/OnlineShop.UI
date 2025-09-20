@@ -1,62 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
+using OnlineShop.Domain.Models;
 
 namespace OnlineShop.Application.Products
 {
+	[Service]
 	public class GetProduct
 	{
-		private ApplicationDbContext _context;
-		public GetProduct(ApplicationDbContext ctx)
+		private IStockManager _stockManager;
+		private IProductManager _productManager;
+
+		public GetProduct(IStockManager stockManager, IProductManager productManager)
 		{
-			_context = ctx;
+			_stockManager = stockManager;
+			_productManager = productManager;
 		}
-
-		public async Task<ProductViewModel> Do(string name)
-		{
-			var stocksOnHold = _context.StockOnHold.Where(x => x.ExpiryDate < DateTime.Now).ToList();
-
-			if(stocksOnHold.Count > 0)
-			{
-				//var stockToReturn = _context.Stock.Where(x => stocksOnHold.Any(y => y.StockId == x.Id)).ToList();
-				var stockIds = stocksOnHold.Select(y => y.StockId).ToList();
-				var stockToReturn = _context.Stock.Where(x => stockIds.Contains(x.Id)).ToList();
-
-
-				foreach (var stock in stockToReturn)
-				{
-					stock.Quantity = stock.Quantity + stocksOnHold.FirstOrDefault(x => x.StockId == stock.Id).Quantity;
-				}
-
-				_context.StockOnHold.RemoveRange(stocksOnHold);
-
-				await _context.SaveChangesAsync();
-			}
-
-			return _context.Products
-				.Include(x=> x.Stock)
-				.Where(x=> x.Name == name)
-                .Select(x => new ProductViewModel
-				{
-					Name = x.Name,
-					Description = x.Description,
-					Value = $"{x.Value.ToString("N2")} $", // 1100.50 -> 1,100.50 -> 1,100.50 $
-
-					Stock = x.Stock
-						.Select(y=> new StockViewModel
-						{
-							Id = y.Id,
-							Description = y.Description,
-							Quantity = y.Quantity,
-                        })
-				})
-				.FirstOrDefault() ?? new ProductViewModel { };
-		}
-
+		
 		public class ProductViewModel
 		{
 			public string Name { get; set; }
@@ -72,5 +30,27 @@ namespace OnlineShop.Application.Products
 			public string Description { get; set; }
             public int Quantity { get; set; }
 		}
-    }
+
+		public async Task<ProductViewModel> Do(string name)
+		{
+			await _stockManager.RetriveExpiredStockOnHold();
+
+			return _productManager.GetProductByName(name, Projection);
+		}
+
+		private Func<Product, ProductViewModel> Projection = (product) => new ProductViewModel
+		{
+			Name = product.Name,
+			Description = product.Description,
+			Value = $"{product.Value.ToString("N2")} $", // 1100.50 -> 1,100.50 -> 1,100.50 $
+
+			Stock = product.Stock
+					.Select(y => new StockViewModel
+					{
+						Id = y.Id,
+						Description = y.Description,
+						Quantity = y.Quantity,
+					})
+		};
+	}
 }

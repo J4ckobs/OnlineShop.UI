@@ -3,30 +3,114 @@
 @{
 }
 
-<div id="app">
+@section Toolbar {
+    <!-- Przyciski widoczne tylko na desktop -->
+    <div class="buttons">
+        <button id="pendingBtn" class="button is-static">Pending</button>
+        <button id="packedBtn" class="button">Packed</button>
+        <button id="shippedBtn" class="button">Shipped</button>
+    </div>
+}
 
-	<div v-if="selectedOrder === null">
-		<div class="tabs is-centered">
-			<ul>
-				<li v-bind:class="{ 'is-active': status === 0 }"><a @@click="status = 0">Pending</a></li>
-				<li v-bind:class="{ 'is-active': status === 1 }"><a @@click="status = 1">Packed</a></li>
-				<li v-bind:class="{ 'is-active': status === 2 }"><a @@click="status = 2">Shipped</a></li>
-			</ul>
-		</div>
-		<div v-if="orders.length > 0">
-			<p v-for="order in orders">
-				<a @@click="selectOrder(order.id)"> {{order.orderRef}} - {{order.email}}</a>
-			</p>
-		</div>
-	</div>
-	<div v-else>
-		<p>
-			<button class="button" @@click="exitOrder()">Exit</button>
-		</p>
-		<p class="title">{{selectedOrder.orderRef}}</p>
-		<p class="subtitle">{{selectedOrder.email}}</p>
-		<button class="button" @@click="updateOrder()">Update</button>
-	</div>
+<div id="app" class="container">
+    <!-- Lista zamówień -->
+    <div v-if="selectedOrder === null">
+        <table class="table is-fullwidth is-striped is-hoverable">
+            <thead>
+                <tr>
+                    <th>Order Ref</th>
+                    <th>Email</th>
+                    <!--<th>Status</th>-->
+                    <th class="has-text-centered">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="order in orders" :key="order.id">
+                    <td>{{ order.orderRef }}</td>
+                    <td>{{ order.email }}</td>
+
+                    <td class="has-text-centered">
+                        <button class="button is-small is-link" @@click ="selectOrder(order.id)">
+                            View
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p v-if="orders.length === 0" class="has-text-grey">No orders found.</p>
+    </div>
+
+    <div v-else>
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    Order Details – {{ selectedOrder.orderRef }}
+                </p>
+                <button class="card-header-icon button is-light" @@click ="exitOrder()">
+                    <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+                </button>
+            </header>
+
+            <div class="card-content">
+                <div class="columns">
+                    <!-- Dane klienta -->
+                    <div class="column is-half">
+                        <h2 class="subtitle is-5">Customer Info</h2>
+                        <p><strong>Email:</strong> {{ selectedOrder.email }}</p>
+                        <p><strong>Name:</strong> {{ selectedOrder.firstName }} {{ selectedOrder.lastName }}</p>
+                        <p><strong>Phone:</strong> {{ selectedOrder.phoneNumber }}</p>
+                        <p><strong>Address:</strong> {{ selectedOrder.address1 }}, {{ selectedOrder.city }} {{ selectedOrder.postCode }}</p>
+                        <p v-if="selectedOrder.address2"><strong>Address 2:</strong> {{ selectedOrder.address2 }}</p>
+                    </div>
+
+                    <!-- Podsumowanie -->
+                    <div class="column is-half">
+                        <h2 class="subtitle is-5">Summary</h2>
+                        <p><strong>Total items:</strong> {{ selectedOrder.products.reduce((sum,p) => sum + p.quantity, 0)}}</p>
+                        <p>
+                            <strong>Total price:</strong>
+                            {{ selectedOrder.products.reduce((sum, p) => sum + p.price * p.quantity, 0).toFixed(2) }} $
+                        </p>
+                        <p>
+                            <strong>Stripe ID:</strong>
+                                {{ selectedOrder.stripereference }}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Produkty -->
+                <h2 class="subtitle is-5 mt-4">Products</h2>
+                <table class="table is-fullwidth is-striped is-hoverable">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th class="has-text-centered">Quantity</th>
+                            <th class="has-text-right">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in selectedOrder.products" :key="item.productId">
+                            <td>{{ item.name }}</td>
+                            <td class="has-text-centered">{{ item.quantity }}</td>
+                            <td class="has-text-right">{{ item.price }} $</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <footer class="card-footer" :class="{ 'is-hidden' :  status === 2 }">
+                <button class="card-footer-item button is-info is-light" @@click ="updateOrder()">
+                    <span>Move order to
+                        <strong>
+							<span v-if="status === 0">Packed</span>
+							<span v-else-if="status === 1">Shipped</span>
+                        </strong>
+                    </span>
+                </button>
+            </footer>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

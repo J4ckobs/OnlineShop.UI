@@ -1,9 +1,7 @@
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\bin\Debug\net8.0\OnlineShop.Application.deps.json
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\bin\Debug\net8.0\OnlineShop.Application.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\bin\Debug\net8.0\OnlineShop.Application.pdb
-L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\bin\Debug\net8.0\OnlineShop.Database.dll
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\bin\Debug\net8.0\OnlineShop.Domain.dll
-L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\bin\Debug\net8.0\OnlineShop.Database.pdb
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\bin\Debug\net8.0\OnlineShop.Domain.pdb
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineShop.Application.csproj.AssemblyReference.cache
 L:\Programy\VS Projects\.NET\Kurs_Piotr_Gankiewicz\Workaroud_apis\OnlineShop.UI\OnlineShop.Application\obj\Debug\net8.0\OnlineShop.Application.GeneratedMSBuildEditorConfig.editorconfig

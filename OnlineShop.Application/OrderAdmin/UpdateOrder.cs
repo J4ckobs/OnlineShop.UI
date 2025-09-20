@@ -1,29 +1,20 @@
-﻿using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
 
 namespace OnlineShop.Application.OrderAdmin
 {
-    public class UpdateOrder
+	[Service]
+	public class UpdateOrder
     {
-        private ApplicationDbContext _context;
+		private IOrderManager _orderManager;
 
-        public UpdateOrder(ApplicationDbContext context)
+		public UpdateOrder(IOrderManager orderManager)
         {
-            _context = context;
+			_orderManager = orderManager;
         }
 
-        public async Task<bool> DoAsync(int id)
+        public Task<int> DoAsync(int id)
         {
-            var order = _context.Orders.FirstOrDefault(x => x.Id == id);
-
-            //Extended handle functionality to add
-            order.Status = order.Status + 1;
-
-            return await _context.SaveChangesAsync() > 0;
+            return _orderManager.AdvanceOrder(id);
         }
     }
 }

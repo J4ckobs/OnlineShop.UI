@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{641812A8-6FC0-4323-A037-257FDBAEB2D2}|OnlineShop.Application\\OnlineShop.Application.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.application\\cart\\removefromcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{641812A8-6FC0-4323-A037-257FDBAEB2D2}|OnlineShop.Application\\OnlineShop.Application.csproj|solutionrelative:onlineshop.application\\cart\\removefromcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\pages\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\pages\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\wwwroot\\js\\admin\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\wwwroot\\js\\admin\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{641812A8-6FC0-4323-A037-257FDBAEB2D2}|OnlineShop.Application\\OnlineShop.Application.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.application\\cart\\addtocart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{641812A8-6FC0-4323-A037-257FDBAEB2D2}|OnlineShop.Application\\OnlineShop.Application.csproj|solutionrelative:onlineshop.application\\cart\\addtocart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\pages\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\pages\\accounts\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|l:\\programy\\vs projects\\.net\\kurs_piotr_gankiewicz\\workaroud_apis\\onlineshop.ui\\onlineshop.ui\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0AAE3130-09FF-4E82-91EA-FFEB5EDA78EB}|OnlineShop.UI\\OnlineShop.UI.csproj|solutionrelative:onlineshop.ui\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,8 +29,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 461,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 276,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,54 +46,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AddToCart.cs",
-              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.Application\\Cart\\AddToCart.cs",
-              "RelativeDocumentMoniker": "OnlineShop.Application\\Cart\\AddToCart.cs",
-              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.Application\\Cart\\AddToCart.cs",
-              "RelativeToolTip": "OnlineShop.Application\\Cart\\AddToCart.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAswC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T10:28:42.606Z",
+              "DocumentIndex": 0,
+              "Title": "site.css",
+              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "OnlineShop.UI\\wwwroot\\css\\site.css",
+              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "OnlineShop.UI\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-17T14:35:09.923Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RemoveFromCart.cs",
-              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.Application\\Cart\\RemoveFromCart.cs",
-              "RelativeDocumentMoniker": "OnlineShop.Application\\Cart\\RemoveFromCart.cs",
-              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.Application\\Cart\\RemoveFromCart.cs",
-              "RelativeToolTip": "OnlineShop.Application\\Cart\\RemoveFromCart.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T20:34:25.388Z",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop.UI\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "OnlineShop.UI\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T14:21:06.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "login.css",
+              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "OnlineShop.UI\\wwwroot\\css\\login.css",
+              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "OnlineShop.UI\\wwwroot\\css\\login.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-17T14:03:35.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "OnlineShop.UI\\Controllers\\CartController.cs",
-              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Controllers\\CartController.cs",
-              "RelativeToolTip": "OnlineShop.UI\\Controllers\\CartController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAqwCQAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T15:42:12.307Z",
+              "Title": "login.js",
+              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\login.js",
+              "RelativeDocumentMoniker": "OnlineShop.UI\\wwwroot\\js\\admin\\login.js",
+              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\wwwroot\\js\\admin\\login.js",
+              "RelativeToolTip": "OnlineShop.UI\\wwwroot\\js\\admin\\login.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-17T14:03:16.331Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Cart.cshtml",
-              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Cart.cshtml",
-              "RelativeDocumentMoniker": "OnlineShop.UI\\Pages\\Cart.cshtml",
-              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Cart.cshtml",
-              "RelativeToolTip": "OnlineShop.UI\\Pages\\Cart.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEcAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Accounts\\Login.cshtml",
+              "RelativeDocumentMoniker": "OnlineShop.UI\\Pages\\Accounts\\Login.cshtml",
+              "ToolTip": "L:\\Programy\\VS Projects\\.NET\\Kurs_Piotr_Gankiewicz\\Workaroud_apis\\OnlineShop.UI\\OnlineShop.UI\\Pages\\Accounts\\Login.cshtml",
+              "RelativeToolTip": "OnlineShop.UI\\Pages\\Accounts\\Login.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAUwEcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-16T15:29:28.295Z",
+              "WhenOpened": "2025-09-17T14:00:45.582Z",
               "EditorCaption": ""
             }
           ]

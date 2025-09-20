@@ -2,7 +2,6 @@
 
     el: '#app',
     data: {
-        menu: 0,
         editing: false,
         loading: false,
         objectIndex: 0,
@@ -14,8 +13,6 @@
         },
         products: []
     },
-    computed: {},
-
     mounted() {
         this.getProducts();
     },
@@ -111,6 +108,7 @@
         newProduct() {
             this.editing = true;
             this.productModel.id = 0;
+            console.log("kliknięto");
         },
 
         editProduct(id, index) {
@@ -133,4 +131,14 @@
             };
         }
     }
+});
+
+//Handling button click and visibility in toolbar section
+
+const toolbar = document.getElementById('addProductBtn');
+
+toolbar.addEventListener('click', () => app.newProduct());
+    
+app.$watch('editing', (val) => {
+    toolbar.classList.toggle('is-hidden', val);
 });

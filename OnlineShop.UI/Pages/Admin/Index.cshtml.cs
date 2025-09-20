@@ -7,6 +7,7 @@ namespace OnlineShop.UI.Pages.Admin
     {
         public void OnGet()
         {
+            ViewData["ActiveTab"] = "Products";
         }
     }
 }

@@ -2,27 +2,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OnlineShop.Application.Cart;
 using OnlineShop.Application.Products;
-using OnlineShop.Database;
 
 namespace OnlineShop.UI.Pages
 {
     public class ProductModel : PageModel
     {
-        private ApplicationDbContext _context;
-
-        public ProductModel(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
         public AddToCart.Request CartViewModel { get; set; }
 
         public GetProduct.ProductViewModel Product { get; set; }
 
-        public async Task<IActionResult> OnGet(string name)
+        public async Task<IActionResult> OnGet(
+            string name,
+            [FromServices] GetProduct getProduct)
         {
-            Product = await new GetProduct(_context).Do(name.Replace("-"," "));
+            Product = await getProduct.Do(name.Replace("-"," "));
 
             if (Product == null)
                 return RedirectToPage("Index");
@@ -30,13 +24,10 @@ namespace OnlineShop.UI.Pages
                 return Page();
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(
+            [FromServices] AddToCart addToCart)
         {
-            Console.WriteLine("###");
-			Console.WriteLine(CartViewModel.Quantity);
-			Console.WriteLine("###");
-
-			var stockAdded = await new AddToCart(HttpContext.Session, _context).DoAsync(CartViewModel);
+			var stockAdded = await addToCart.DoAsync(CartViewModel);
 
             if(stockAdded)
                 return RedirectToPage("Cart");

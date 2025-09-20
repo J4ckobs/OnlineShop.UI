@@ -1,77 +1,35 @@
-﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using OnlineShop.Database;
-using OnlineShop.Domain.Models;
+﻿using OnlineShop.Domain.Infrastructure;
 
 namespace OnlineShop.Application.Cart
 {
+    [Service]
 	public class RemoveFromCart
 	{
-        private ISession _session;
-        private ApplicationDbContext _context;
+        private ISessionManager _sessionManager;
+        private IStockManager _stockManager;
 
-        public RemoveFromCart(ISession session, ApplicationDbContext context)
+        public RemoveFromCart(ISessionManager sessionManager, IStockManager stockManager)
         {
-            _session = session;
-            _context = context;
+            _sessionManager = sessionManager;
+            _stockManager = stockManager;
         }
         public class Request
         {
             public int StockId { get; set; }
             public int Quantity { get; set; }
-            public bool RemoveAll { get; set; }
         }
 
         public async Task<bool> DoAsync(Request request)
         {
-			var cartList = new List<CartProduct>();
-			var stringObject = _session.GetString("cart");
+            if (request.Quantity <= 0)
+                return false;
 
-			if (string.IsNullOrEmpty(stringObject))
-                return true;
-            
-            cartList = JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
+            await _stockManager.
+                RemoveStockFromHold(request.StockId, request.Quantity, _sessionManager.GetId());
 
-            if(!cartList.Any(x => x.StockId == request.StockId))
-                return true;
-
-            var stockOnHold = _context.StockOnHold
-                .FirstOrDefault(x => x.StockId == request.StockId
-                                && x.SessionId == _session.Id);
-
-            var stock = _context.Stock.FirstOrDefault(x => x.Id == request.StockId);
-
-			if (request.RemoveAll || stockOnHold.Quantity <= 1)
-            {
-                cartList.RemoveAll(x => x.StockId == request.StockId);
-
-                stock.Quantity += stockOnHold.Quantity;
-                stockOnHold.Quantity = 0;
-            }
-            else// if (stockOnHold.Quantity == 1 && request.Quantity >=1)
-            {
-				cartList.Find(x => x.StockId == request.StockId).Quantity -= request.Quantity;
-
-				stock.Quantity += request.Quantity;
-                stockOnHold.Quantity -= request.Quantity;
-            }
-
-            //Cart update | session site
-			stringObject = JsonConvert.SerializeObject(cartList);
-
-			_session.SetString("cart", stringObject);
-
-			if (stockOnHold.Quantity <= 0)
-				_context.StockOnHold.Remove(stockOnHold);
-
-			await _context.SaveChangesAsync();
+			_sessionManager.RemoveProduct(request.StockId, request.Quantity);
 
             return true;
-        }
-
-        void RemoveItem()
-        {
-
         }
     }
 }

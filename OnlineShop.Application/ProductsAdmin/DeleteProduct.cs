@@ -1,29 +1,20 @@
-﻿using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
 
 namespace OnlineShop.Application.ProductsAdmin
 {
-    public class DeleteProduct
+	[Service]
+	public class DeleteProduct
     {
-        private ApplicationDbContext _context;
-        public DeleteProduct(ApplicationDbContext ctx)
+		private IProductManager _productManager;
+
+		public DeleteProduct(IProductManager productManager)
         {
-            _context = ctx;
+            _productManager = productManager;
         }
 
-        public async Task<bool> Do(int id)
+        public Task<int> Do(int id)
         {
-            var Product = _context.Products.FirstOrDefault(x => x.Id == id);
-
-            _context.Products.Remove(Product);
-
-            await _context.SaveChangesAsync();
-
-            return true;
+            return _productManager.DeleteProduct(id);
         }
 
     }

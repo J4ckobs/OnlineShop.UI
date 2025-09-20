@@ -3,36 +3,95 @@
 @{
 }
 
-<div id="app" class="container is-centered">
-	<div class="column">
-		<table class="table">
-			<tr>
-				<td>Username</td>
-				<td>Id</td>
-			</tr>
-			<tr v-for="(user, index) in users">
-				<td>{{user.userName}}</td>
-				<td>{{user.id}}</td>
-				<td><a style="color: darkblue; text-decoration: underline;" @@click="deleteUser(user.id, index)">Remove</a></td>
-			</tr>
-		</table>
-	</div>
-	<br />
-	<table class="column">
+@section Toolbar {
+    <button id="addUserBtn" class="button is-success">Add Account</button>
+}
 
-		<label>Username</label>
-		<br />
-		<input v-model="username" />
-		<br />
-		<label>Password</label>
-		<br />
-		<input v-model="password" />
-		<br /> <br />
-		<button class="button is-3" @@click="createUser()">Create</button>
-	</table>
+<div id="app" class="container">
+    <!-- Lista użytkowników -->
+    <div class="box" v-if="!editing">
+        <h2 class="subtitle is-5">User List</h2>
+        <table class="table is-fullwidth is-striped is-hoverable">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>User ID</th>
+                    <th>Role</th>
+                    <th class="has-text-centered">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(user, index) in users" :key="user.id">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.id }}</td>
+					<td>
+                        <div class="tag is-info">
+                            {{ user.role }}
+						</div>
+                    </td>
+                    <td class="has-text-centered">
+                        <button class="button is-small is-danger" 
+                                @@click="deleteUser(user.id, index)">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p v-if="users.length === 0" class="has-text-grey has-text-centered">
+            No users found.
+        </p>
+    </div>
+
+    <!-- Dodawanie nowego użytkownika -->
+    <div class="columns is-centered" v-else>
+        <div class="column is-half">
+            <div class="box">
+                <h2 class="subtitle is-5 has-text-centered">Create New User</h2>
+
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                        <input class="input" type="text" v-model="username" placeholder="Enter username">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input" type="text" v-model="password" placeholder="Enter password">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Role</label>
+                    <div class="control">
+                        <div class="select is-fullwidth">
+                            <select>
+                                <!--v-model="role" -->
+                                <option disabled selected value="">- Select role -</option>
+                                <option>Admin</option>
+                                <option>Manager</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <button class="button is-success" @@click="createUser">Create</button>
+                    </p>
+                    <p class="control">
+                        <button class="button is-light" @@click="cancelAddingUser">Cancel</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-
 @section scripts {
-	<script src="~/js/admin/users.js"></script>
+    <script src="~/js/admin/users.js"></script>
 }

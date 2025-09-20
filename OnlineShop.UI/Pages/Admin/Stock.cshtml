@@ -5,39 +5,90 @@
 
 <div id="app" class="container">
 	<div class="columns">
-		<div class=" column is-3">
-			<table class="table">
-				<tr v-for ="product in products" @@click="selectProduct(product)">
-					<td>{{product.name}}</td>
+		<!-- Lewa kolumna: lista produktów -->
+		<div class="column is-3">
+			<div class="menu card">
+				<header class="card-header">
+					<p class="card-header-title">Products</p>
+				</header>
+				<ul class="menu-list">
+					<li v-for="product in products" :key="product.id">
+						<button class="button"
+							:class="{ 'is-active': selectedProduct && selectedProduct.id === product.id }"
+							@@click="selectProduct(product)">
+							{{ product.name }}
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-				</tr>
-			</table>
-		</div>
-		
+		<!-- Środkowa kolumna: stock wybranego produktu -->
 		<div class="column is-6" v-if="selectedProduct">
-			<table class="table">
-				<tr v-for="(stock,index) in selectedProduct.stock">
-					<td><input class="input" v-model="stock.description" /></td>
-					<td><input class="input" v-model.number="stock.quantity" /></td>
-					<td><a class="button has-text-danger" @@click="deleteStock(stock.id, index)">Delete</a></td>
-				</tr>
-			</table>
-			<a class="button is-warning" @@click="updateStock">Update Products</a>
+			<div class="card">
+			<table class="table is-fullwidth is-striped is-hoverable">
+				<thead>
+					<tr>
+						<th>Description</th>
+						<th>Quantity</th>
+						<th></th>
+					</tr>
+				</thead>
+					<tbody class="card-content">
+					<tr v-for="(stock,index) in selectedProduct.stock" :key="stock.id">
+						<td><input class="input" v-model="stock.description" /></td>
+						<td><input class="input" v-model.number="stock.quantity" type="number" /></td>
+						<td>
+							<button class="button is-small is-danger" @@click="deleteStock(stock.id, index)">
+								<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+				</table>
+			
+				<footer class="mt-4 card-footer">
+					<button class="button is-warning card-footer-item mx-2 mb-2"
+							:disabled="!selectedProduct.stock || selectedProduct.stock.length === 0"
+							@@click="updateStock">
+							Update
+						</button>
+				</footer>
+			</div>
 		</div>
+
+		<!-- Prawa kolumna: dodawanie stocku -->
 		<div class="column is-3" v-if="selectedProduct">
-			<h3 class="title">New Stock</h3>
-			<div class="field">
-				<div class="control">
-					<input class="input" v-model="newStock.description" />
+			<div class="card">
+				<header class="card-header">
+					<p class="card-header-title">Add Stock</p>
+				</header>
+				<div class="card-content">
+					<div class="field">
+						<label class="label">Description</label>
+						<div class="control">
+							<input class="input" v-model="newStock.description" placeholder="Enter description..." />
+						</div>
+					</div>
+					<div class="field">
+						<label class="label">Quantity</label>
+						<div class="control">
+							<input class="input" v-model.number="newStock.quantity" type="number" placeholder="0" />
+						</div>
+					</div>
 				</div>
+				<footer class="card-footer">
+					<button
+						class="button button-success card-footer-item has-text-success"
+						@@click="addStock"
+							:class="{ 'disabled': !newStock.description || !newStock.quantity }"
+						:style="(!newStock.description || !newStock.quantity) ? 'disabled' : ''">
+						Add
+					</button>
+				</footer>
 			</div>
-			<div class="field">
-				<div class="control">
-					<input class="input" v-model.number="newStock.quantity" />
-				</div>
-			</div>
-			<a class="button is-success" @@click="addStock">Add</a>
 		</div>
+
 	</div>
 </div>
 

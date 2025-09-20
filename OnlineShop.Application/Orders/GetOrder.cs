@@ -1,21 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
+using OnlineShop.Domain.Models;
+using System.Linq.Expressions;
 
 namespace OnlineShop.Application.Orders
 {
+	[Service]
 	public class GetOrder
 	{
-		private ApplicationDbContext _context;
+		private readonly IOrderManager _orderManager;
 
-		public GetOrder(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+		public GetOrder(IOrderManager orderManager)
+		{
+			_orderManager = orderManager;
+		}
 
 		public class Response
 		{
@@ -38,7 +35,7 @@ namespace OnlineShop.Application.Orders
 
 		public class Product
 		{
-            public string Name { get; set; }
+			public string Name { get; set; }
 			public string Description { get; set; }
 			public string Value { get; set; }
 			public int Quantity { get; set; }
@@ -47,34 +44,31 @@ namespace OnlineShop.Application.Orders
 		}
 
 		public Response Do(string reference) =>
-			_context.Orders
-				.Where(x => x.OrderRef == reference)
-				.Include(x => x.OrderStocks)
-				.ThenInclude(x => x.Stock)
-				.ThenInclude(x => x.Product)
-				.Select(x => new Response
+			_orderManager.GetOrderByReference(reference, Projection);
+
+		private static Expression<Func<Order, Response>> Projection = (order) =>
+			new Response
+			{
+				OrderRef = order.OrderRef,
+				FirstName = order.FirstName,
+				LastName = order.LastName,
+				Email = order.Email,
+				PhoneNumber = order.PhoneNumber,
+
+				Address1 = order.Address1,
+				Address2 = order.Address2,
+				City = order.City,
+				PostCode = order.PostCode,
+
+				Products = order.OrderStocks.Select(y => new Product
 				{
-					OrderRef = x.OrderRef,
-					FirstName = x.FirstName,
-					LastName = x.LastName,
-					Email = x.Email,
-					PhoneNumber = x.PhoneNumber,
-
-					Address1 = x.Address1,
-					Address2 = x.Address2,
-					City = x.City,
-					PostCode = x.PostCode,
-
-					Products = x.OrderStocks.Select(y => new Product
-					{
-						Name = y.Stock.Product.Name,
-						Description = y.Stock.Product.Description,
-						Value = $"{y.Stock.Product.Value:N2}",
-						Quantity = y.Quantity,
-						StockDescription = y.Stock.Product.Description,
-					}),
-					TotalValue = x.OrderStocks.Sum(y => y.Stock.Product.Value).ToString("N2")
-				})
-				?.FirstOrDefault() ?? new Response(); //Later
-    }
+					Name = y.Stock.Product.Name,
+					Description = y.Stock.Product.Description,
+					Value = $"{y.Stock.Product.Value:N2}",
+					Quantity = y.Quantity,
+					StockDescription = y.Stock.Product.Description,
+				}),
+				TotalValue = order.OrderStocks.Sum(y => y.Stock.Product.Value).ToString("N2")
+			};
+	}		
 }

@@ -1,21 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OnlineShop.Application.Cart;
-using OnlineShop.Database;
 
 namespace OnlineShop.UI.Pages.Checkout
 {
     public class SuccessModel : PageModel
     {
-		private ApplicationDbContext _context;
-		public SuccessModel(ApplicationDbContext context)
+		public IActionResult OnGet(
+			[FromServices] ClearCart clearCart)
 		{
-			_context = context;
-		}
-
-		public IActionResult OnGet()
-		{
-			new ClearCart(HttpContext.Session).Do();
+			clearCart.Do();
 
 			return Page();
 		}

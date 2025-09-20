@@ -1,31 +1,29 @@
-﻿using OnlineShop.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnlineShop.Domain.Infrastructure;
 
 namespace OnlineShop.Application.ProductsAdmin
 {
-    public class UpdateProduct
+	[Service]
+	public class UpdateProduct
     {
-        private ApplicationDbContext _context;
-        public UpdateProduct(ApplicationDbContext ctx)
+		private IProductManager _productManager;
+
+		public UpdateProduct(IProductManager productManager)
         {
-            _context = ctx;
-        }
+			_productManager = productManager;
+
+		}
 
         public async Task<Response> Do(Request request)
         {
-			var product = _context.Products.FirstOrDefault(x => x.Id == request.Id);
+			var product = _productManager.GetProductById(request.Id, x => x);
 
 			product.Name = request.Name;
 			product.Description = request.Description;
 			product.Value = request.Value;
 
-            await _context.SaveChangesAsync();
+			await _productManager.UpdateProduct(product);
 
-			return new Response
+            return new Response
 			{
 				Id = product.Id,
 				Name = product.Name,
